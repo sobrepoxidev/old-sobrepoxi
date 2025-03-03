@@ -7,7 +7,6 @@ import { FaEnvelope, FaLock, FaUser, FaPhone, FaCalendar } from 'react-icons/fa'
 import { Tooltip } from 'react-tooltip' // Ejemplo: npm install react-tooltip (o quítalo si no lo quieres)
 
 export default function RegisterPage() {
-  const router = useRouter()
   const { supabase } = useSupabase()
 
   const [email, setEmail] = useState('')

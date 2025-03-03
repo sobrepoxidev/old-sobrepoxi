@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+  <!-- Fondo con color de marca -->
+  <rect width="500" height="400" fill="#F4F7FA"/>
+  
+  <!-- Mesa de trabajo diseñador -->
+  <rect x="50" y="120" width="400" height="220" rx="5" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+  
+  <!-- Planos/Diseños en la mesa -->
+  <rect x="70" y="140" width="200" height="140" fill="#E5E7EB"/>
+  <rect x="290" y="140" width="140" height="90" fill="#7EAFD0" opacity="0.7"/>
+  <rect x="290" y="240" width="140" height="80" fill="#38B6FF" opacity="0.5"/>
+  
+  <!-- Elementos de diseño -->
+  <circle cx="160" cy="210" r="40" fill="#0078BE" opacity="0.6"/>
+  <rect x="220" y="170" width="30" height="80" fill="#0078BE"/>
+  
+  <!-- Mano con lápiz diseñando -->
+  <path d="M380 120 C390 110, 410 100, 420 110 C430 120, 420 130, 410 140 L390 160 L360 130 L380 120 Z" fill="#E5E7EB"/>
+  <path d="M390 160 L360 130 L340 150 L370 180 Z" fill="#D1D5DB"/>
+  <path d="M340 150 L370 180 L310 240 L280 210 Z" fill="#E5E7EB"/>
+  <line x1="310" y1="240" x2="280" y2="210" stroke="#6B7280" stroke-width="1"/>
+  
+  <!-- Lápiz -->
+  <path d="M380 120 L400 100 L440 140 L420 160 Z" fill="#0078BE"/>
+  <path d="M440 140 L420 160 L430 170 L450 150 Z" fill="#00417A"/>
+  
+  <!-- Título de plano -->
+  <rect x="100" y="150" width="140" height="10" fill="#6B7280"/>
+  <rect x="100" y="170" width="100" height="6" fill="#6B7280"/>
+  <rect x="100" y="185" width="120" height="6" fill="#6B7280"/>
+  <rect x="100" y="200" width="80" height="6" fill="#6B7280"/>
+  
+  <!-- Elementos mobiliario en boceto -->
+  <rect x="320" y="160" width="40" height="20" fill="#0078BE" opacity="0.8"/>
+  <rect x="370" y="170" width="30" height="30" fill="#0078BE" opacity="0.8"/>
+  <rect x="320" y="260" width="60" height="40" fill="#0078BE" opacity="0.8"/>
+  
+  <!-- Herramientas diseño -->
+  <path d="M100 300 L140 300 L130 320 L110 320 Z" fill="#374151"/>
+  <rect x="160" y="290" width="40" height="30" rx="2" fill="#38B6FF"/>
+  <circle cx="220" cy="305" r="15" fill="#0078BE"/>
+  
+  <!-- Logo de Sobrepoxi en la esquina -->
+  <circle cx="420" cy="60" r="30" fill="#0078BE"/>
+  <text x="420" y="68" font-family="Arial" font-size="10" fill="white" text-anchor="middle">SOBREPOXI</text>
+</svg>

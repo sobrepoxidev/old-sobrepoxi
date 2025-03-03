@@ -32,8 +32,8 @@ export default function LoginPage() {
       if (error) {
         setErrorMsg(error.message)
       } else {
-        // Login exitoso
-        router.push('/tickets') // o la ruta que quieras
+        // llevar  a la página de inicio
+        router.push('/')
       }
     } catch (error: any) {
       setErrorMsg(error.message)
@@ -48,14 +48,14 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center text-white dark:text-black">Iniciar Sesión</h1>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block mb-1 font-medium">Email</label>
+            <label className="block mb-1 font-medium text-white dark:text-black">Email</label>
             <input
               type="email"
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full border border-gray-300 rounded px-3 py-2 dark:bg-white dark:text-black"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="tu-correo@ejemplo.com"
@@ -63,10 +63,10 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label className="block mb-1 font-medium">Contraseña</label>
+            <label className="block mb-1 font-medium text-white dark:bg-white dark:text-black ">Contraseña</label>
             <input
               type="password"
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full border border-gray-300 rounded px-3 py-2 dark:bg-white dark:text-black"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -83,7 +83,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm">
+        <p className="mt-4 text-center text-sm text-white dark:text-black">
           ¿No tienes cuenta?
           <a href="/register" className="text-blue-600 ml-1 hover:underline">
             Regístrate aquí

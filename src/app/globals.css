@@ -2,65 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🎨 Identidad Visual Refinada */
+/* 🎨 Identidad Visual Sobrepoxi - CORREGIDA */
 :root {
-  --background: #F8F4EC; /* Beige cálido */
-  --foreground: #2E2E38; /* Gris oscuro refinado */
+  /* Fondo y Primer Plano */
+  --background: #F4F7FA; /* Fondo gris azulado claro */
+  --foreground: #2D3748; /* Azul oscuro casi negro para texto */
 
   /* Colores de marca */
-  --primary: #5A3E85; /* Púrpura profundo */
-  --primary-hover: #4A3170;
-  --secondary: #E4C580; /* Oro suave */
-  --secondary-hover: #C8A156;
-  --tertiary: #52796F; /* Verde azulado elegante */
-  --tertiary-hover: #406358;
+  --primary: #0078BE; /* Azul primario del logo */
+  --primary-hover: #00417A; /* Azul oscuro del logo */
+  --secondary: #38B6FF; /* Azul claro */
+  --secondary-hover: #2CA7F0;
+  --tertiary: #7EAFD0; /* Azul grisáceo */
+  --tertiary-hover: #5A8DB0;
 
   /* Acentos */
-  --success: #61C9A8;
-  --warning: #E88D67;
-  --danger: #E63946;
+  --success: #34D399; /* Verde fresco */
+  --warning: #FBBF24; /* Amarillo */
+  --danger: #EF4444; /* Rojo */
 
   /* Neutrales */
-  --gray: #707070;
-  --gray-light: #E0D8C6;
-  --gray-dark: #2E2E38;
+  --gray: #6B7280;
+  --gray-light: #E5E7EB;
+  --gray-dark: #374151;
 
+  /* Elementos de interfaz */
   --card-bg: #FFFFFF;
-  --input-bg: #F8F4EC;
-  --input-border: #C4B99F;
-  --text-primary: #2E2E38;
-  --text-secondary: #555263;
+  --input-bg: #F9FAFB;
+  --input-border: #D1D5DB;
+  --text-primary: #2D3748; /* Texto principal oscuro para modo claro */
+  --text-secondary: #4A5568; /* Texto secundario ligeramente más claro */
 }
 
-/* 🌙 Modo Oscuro Refinado */
+/* 🌙 Modo Oscuro - CORREGIDO */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1C1C28; /* Azul Grisáceo Oscuro */
-    --foreground: #EAEAEA;
+    /* Fondo y primer plano invertidos */
+    --background: #1A202C; /* Azul oscuro profundo */
+    --foreground: #F7FAFC; /* Casi blanco para texto */
 
-    /* Colores de Marca en Oscuro */
-    --primary: #9A72C0;
-    --primary-hover: #8259A8;
-    --secondary: #E4C580;
-    --secondary-hover: #C8A156;
-    --tertiary: #67A593;
-    --tertiary-hover: #50826F;
+    /* Colores de Marca en Oscuro - Más brillantes para mejor visibilidad */
+    --primary: #0090E0; /* Azul logo más brillante */
+    --primary-hover: #38B6FF;
+    --secondary: #38B6FF; /* Más brillante para mejor visibilidad */
+    --secondary-hover: #7EAFD0;
+    --tertiary: #5A8DB0; 
+    --tertiary-hover: #7EAFD0;
 
-    /* Acentos */
-    --success: #61C9A8;
-    --warning: #E88D67;
-    --danger: #E63946;
+    /* Acentos mantenidos brillantes */
+    --success: #34D399;
+    --warning: #FBBF24;
+    --danger: #EF4444;
 
-    /* Neutrales */
-    --gray: #94A3B8;
-    --gray-light: #2E2E38;
-    --gray-dark: #1C1C28;
+    /* Neutrales adaptados para modo oscuro */
+    --gray: #9CA3AF;
+    --gray-light: #4B5563; /* Más visible en fondo oscuro */
+    --gray-dark: #111827;
 
-    --card-bg: #26263A;
-    --input-bg: #2E2E38;
-    --input-border: #4A4A5C;
-    --text-primary: #EAEAEA;
-    --text-secondary: #A1A1B6;
+    /* Elementos de interfaz adaptados */
+    --card-bg: #2D3748; /* Fondo de tarjeta azul oscuro */
+    --input-bg: #374151; /* Entradas ligeramente más claras que el fondo */
+    --input-border: #4B5563;
+    --text-primary: #F7FAFC; /* Texto principal claro para modo oscuro */
+    --text-secondary: #E2E8F0; /* Texto secundario ligeramente más oscuro que el principal */
   }
 }
 
@@ -69,7 +73,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
 }
 
 /* 🎨 Fondo y Texto */
@@ -84,28 +88,29 @@ body {
   background: var(--card-bg);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 120, 190, 0.1);
 }
 
 /* 🖊️ Inputs Elegantes */
 input {
   background: var(--input-bg);
   border: 1px solid var(--input-border);
+  color: var(--text-primary); /* Asegura texto visible */
   padding: 0.75rem;
-  border-radius: 6px;
+  border-radius: 8px;
   outline: none;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 5px var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 120, 190, 0.2);
 }
 
 /* 🎨 Botones con Personalidad */
@@ -120,7 +125,7 @@ input:focus {
   }
   .btn-primary:hover {
     background-color: var(--primary-hover);
-    box-shadow: 0 4px 12px rgba(90, 62, 133, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 120, 190, 0.3);
   }
 
   .btn-secondary {
@@ -129,7 +134,7 @@ input:focus {
   }
   .btn-secondary:hover {
     background-color: var(--secondary-hover);
-    box-shadow: 0 4px 12px rgba(228, 197, 128, 0.3);
+    box-shadow: 0 4px 12px rgba(56, 182, 255, 0.3);
   }
 
   .btn-tertiary {
@@ -138,7 +143,7 @@ input:focus {
   }
   .btn-tertiary:hover {
     background-color: var(--tertiary-hover);
-    box-shadow: 0 4px 12px rgba(82, 121, 111, 0.3);
+    box-shadow: 0 4px 12px rgba(126, 175, 208, 0.3);
   }
 
   .btn-danger {
@@ -146,7 +151,64 @@ input:focus {
     background-color: var(--danger);
   }
   .btn-danger:hover {
-    background-color: var(--danger-hover);
-    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    background-color: #DC2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+}
+
+/* Añadidos para navegación fluida */
+.nav-link {
+  position: relative;
+  color: var(--text-primary); /* Asegura que los enlaces siempre sean visibles */
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Clases de utilidad para manejo de texto */
+.text-on-primary {
+  color: white;
+}
+
+.text-on-dark {
+  color: var(--foreground);
+}
+
+.text-on-light {
+  color: var(--text-primary);
+}
+
+/* Correcciones para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 144, 224, 0.15);
+  }
+  
+  /* Asegura que los botones tengan suficiente contraste */
+  .btn-secondary, .btn-tertiary {
+    color: #111827; /* Texto oscuro para fondos claros */
   }
 }

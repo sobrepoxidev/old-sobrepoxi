@@ -16,7 +16,13 @@ const bancos = [
   { nombre: "Banco Lafise", sms: "+9091", permiteSMS: true },
 ];
 
-export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
+interface SinpePaymentProps {
+    ticketIds: number[]; // Ahora es una lista de números
+    minNumber: number;
+    maxNumber: number;
+    total: number;
+  }
+export default function SinpePayment({ ticketIds, minNumber, maxNumber, total }: SinpePaymentProps) {
   const router = useRouter();
   type Banco = {
     nombre: string;
@@ -31,20 +37,36 @@ export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
 
   useEffect(() => {
     const fetchNumerosOcupados = async () => {
+      if (!ticketIds || ticketIds.length === 0) return; // Evitar consultas innecesarias
+
+        console.log("\n----- Ticket IDs: ", ticketIds);
       const { data, error } = await supabase
         .from("user_tickets")
-        .select("number")
-        .eq("ticket_type_id", ticketId);
-
+        .select("number, ticket_type_id") // Seleccionamos también `ticket_type_id` para referencia
+        .in("ticket_type_id", ticketIds); // Filtrar por una lista de IDs
+  
       if (error) {
         console.error("Error obteniendo números ocupados:", error);
       } else {
-        setNumerosOcupados(data.map((d: any) => d.number));
+        // Convertimos los resultados en un mapa { ticket_type_id: [numeros] }
+        const numerosPorTicket = data.reduce((acc: Record<number, number[]>, item: any) => {
+          if (!acc[item.ticket_type_id]) acc[item.ticket_type_id] = [];
+          acc[item.ticket_type_id].push(item.number);
+          return acc;
+        }, {});
+
+        //lista de solo los números de numerosPorTicket
+        const numeros = Object.values(numerosPorTicket).flat();
+        console.log("\n----- Numeros ocupados: ", numeros);
+        setNumerosOcupados(numeros); // Guardamos el objeto en el estado
+  
+        //setNumerosOcupados(numerosPorTicket); // Guardamos el objeto en el estado
       }
     };
-
+  
     fetchNumerosOcupados();
-  }, [ticketId]);
+  }, [ticketIds]);
+  
 
   const handleBancoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const banco = bancos.find((b) => b.nombre === e.target.value);
@@ -97,7 +119,7 @@ export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
           {bancoSeleccionado.permiteSMS ? (
             <>
               <p className="text-gray-700 dark:text-gray-300">📲 Enviar SMS a: <b>{bancoSeleccionado.sms}</b></p>
-              <p className="text-gray-700 dark:text-gray-300">💬 Mensaje: <b>PASE 5000 8888-9999</b></p>
+              <p className="text-gray-700 dark:text-gray-300">💬 Mensaje: <b>PASE {total} 8585-0000</b></p>
               <button
                 onClick={copiarMensaje}
                 className="mt-2 w-full text-sm bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-md"
@@ -153,7 +175,7 @@ export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
         onClick={continuar}
         className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md"
       >
-        🎟️ Confirmar Ticket
+        Confirmar pago y continuar 
       </button>
     </div>
   );
