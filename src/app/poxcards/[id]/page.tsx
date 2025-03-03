@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import TicketDetailClient from "@/components/user/TicketDetailClient";
+import { Suspense } from "react";
 
 type Props = {
   params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function TicketTypeDetailPage({ params }: Props) {
+export default async function TicketDetailPage({ params }: Props) {
   const { id } = params;
 
   // Validar param
@@ -32,7 +33,8 @@ export default async function TicketTypeDetailPage({ params }: Props) {
   }
 
   return (
-    // Pasamos la info al Client Component
-    <TicketDetailClient ticketType={ticketType} />
+    <Suspense fallback={<div>Cargando detalles del ticket...</div>}>
+      <TicketDetailClient ticketType={ticketType} />
+    </Suspense>
   );
 }
