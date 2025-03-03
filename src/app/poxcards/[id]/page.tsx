@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import TicketDetailClient from "@/components/user/TicketDetailClient"; // <-- Importa el Client Component
 
 type Props = {
-  params: { id?: string };
+  params: { id: string };
 };
 
 export default async function TicketTypeDetailPage({ params }: Props) {
