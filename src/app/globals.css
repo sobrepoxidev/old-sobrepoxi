@@ -2,20 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🎨 Identidad Visual Refinada */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F4EC; /* Beige cálido */
+  --foreground: #2E2E38; /* Gris oscuro refinado */
+
+  /* Colores de marca */
+  --primary: #5A3E85; /* Púrpura profundo */
+  --primary-hover: #4A3170;
+  --secondary: #E4C580; /* Oro suave */
+  --secondary-hover: #C8A156;
+  --tertiary: #52796F; /* Verde azulado elegante */
+  --tertiary-hover: #406358;
+
+  /* Acentos */
+  --success: #61C9A8;
+  --warning: #E88D67;
+  --danger: #E63946;
+
+  /* Neutrales */
+  --gray: #707070;
+  --gray-light: #E0D8C6;
+  --gray-dark: #2E2E38;
+
+  --card-bg: #FFFFFF;
+  --input-bg: #F8F4EC;
+  --input-border: #C4B99F;
+  --text-primary: #2E2E38;
+  --text-secondary: #555263;
 }
 
+/* 🌙 Modo Oscuro Refinado */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1C1C28; /* Azul Grisáceo Oscuro */
+    --foreground: #EAEAEA;
+
+    /* Colores de Marca en Oscuro */
+    --primary: #9A72C0;
+    --primary-hover: #8259A8;
+    --secondary: #E4C580;
+    --secondary-hover: #C8A156;
+    --tertiary: #67A593;
+    --tertiary-hover: #50826F;
+
+    /* Acentos */
+    --success: #61C9A8;
+    --warning: #E88D67;
+    --danger: #E63946;
+
+    /* Neutrales */
+    --gray: #94A3B8;
+    --gray-light: #2E2E38;
+    --gray-dark: #1C1C28;
+
+    --card-bg: #26263A;
+    --input-bg: #2E2E38;
+    --input-border: #4A4A5C;
+    --text-primary: #EAEAEA;
+    --text-secondary: #A1A1B6;
   }
 }
 
+/* 🔧 Ajustes Globales */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 🎨 Fondo y Texto */
 body {
-  color: var(--foreground);
+  color: var(--text-primary);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🎴 Estilos de Tarjetas */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 🖊️ Inputs Elegantes */
+input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  padding: 0.75rem;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+/* 🎨 Botones con Personalidad */
+@layer components {
+  .btn {
+    @apply px-5 py-3 rounded-lg font-semibold transition shadow-md;
+  }
+
+  .btn-primary {
+    @apply btn text-white;
+    background-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(90, 62, 133, 0.3);
+  }
+
+  .btn-secondary {
+    @apply btn text-white;
+    background-color: var(--secondary);
+  }
+  .btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    box-shadow: 0 4px 12px rgba(228, 197, 128, 0.3);
+  }
+
+  .btn-tertiary {
+    @apply btn text-white;
+    background-color: var(--tertiary);
+  }
+  .btn-tertiary:hover {
+    background-color: var(--tertiary-hover);
+    box-shadow: 0 4px 12px rgba(82, 121, 111, 0.3);
+  }
+
+  .btn-danger {
+    @apply btn text-white;
+    background-color: var(--danger);
+  }
+  .btn-danger:hover {
+    background-color: var(--danger-hover);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+  }
 }
