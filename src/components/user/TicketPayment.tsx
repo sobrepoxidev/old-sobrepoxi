@@ -16,7 +16,13 @@ const bancos = [
   { nombre: "Banco Lafise", sms: "+9091", permiteSMS: true },
 ];
 
-export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
+interface TicketPaymentProps {
+  ticketId: string;
+  minNumber: number;
+  maxNumber: number;
+}
+
+export default function TicketPayment({ ticketId, minNumber, maxNumber }: TicketPaymentProps) {
   const router = useRouter();
   type Banco = {
     nombre: string;
@@ -29,6 +35,11 @@ export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
   const [numerosOcupados, setNumerosOcupados] = useState<number[]>([]);
   const [numeroSeleccionado, setNumeroSeleccionado] = useState<number | null>(null);
 
+  // Define type for database ticket item
+  type TicketItem = {
+    number: number;
+  };
+  
   useEffect(() => {
     const fetchNumerosOcupados = async () => {
       const { data, error } = await supabase
@@ -39,7 +50,7 @@ export default function TicketPayment({ ticketId, minNumber, maxNumber }: any) {
       if (error) {
         console.error("Error obteniendo números ocupados:", error);
       } else {
-        setNumerosOcupados(data.map((d: any) => d.number));
+        setNumerosOcupados(data.map((d: TicketItem) => d.number));
       }
     };
 

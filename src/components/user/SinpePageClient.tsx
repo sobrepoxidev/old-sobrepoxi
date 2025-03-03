@@ -48,8 +48,14 @@ export default function SinpePayment({ ticketIds, minNumber, maxNumber, total }:
       if (error) {
         console.error("Error obteniendo números ocupados:", error);
       } else {
+        // Define a type for the database row
+        type TicketRow = {
+          number: number;
+          ticket_type_id: number;
+        };
+        
         // Convertimos los resultados en un mapa { ticket_type_id: [numeros] }
-        const numerosPorTicket = data.reduce((acc: Record<number, number[]>, item: any) => {
+        const numerosPorTicket = data.reduce((acc: Record<number, number[]>, item: TicketRow) => {
           if (!acc[item.ticket_type_id]) acc[item.ticket_type_id] = [];
           acc[item.ticket_type_id].push(item.number);
           return acc;

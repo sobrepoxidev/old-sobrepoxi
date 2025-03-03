@@ -18,28 +18,28 @@ export default function CheckoutPage() {
   const ticketsIds = cart.map((item) => item.id);
 
   // Handler para el pago (opcional, aquí comentado)
-  const handlePayment = () => {
-    switch (paymentMethod) {
-      case "sinpe":
-        alert(`Pago por SINPE. Total: ₡${total}`);
-        clearCart();
-        break;
-      case "paypal":
-        alert(`Redirigiendo a PayPal. Total: ₡${total}`);
-        clearCart();
-        break;
-      case "transfer":
-        alert(`Info para transferencia bancaria: ₡${total} ...`);
-        clearCart();
-        break;
-      case "card":
-        alert(`Pago con tarjeta: ₡${total} ...`);
-        clearCart();
-        break;
-      default:
-        alert("Selecciona un método de pago");
-    }
-  };
+  // const handlePayment = () => {
+  //   switch (paymentMethod) {
+  //     case "sinpe":
+  //       alert(`Pago por SINPE. Total: ₡${total}`);
+  //       clearCart();
+  //       break;
+  //     case "paypal":
+  //       alert(`Redirigiendo a PayPal. Total: ₡${total}`);
+  //       clearCart();
+  //       break;
+  //     case "transfer":
+  //       alert(`Info para transferencia bancaria: ₡${total} ...`);
+  //       clearCart();
+  //       break;
+  //     case "card":
+  //       alert(`Pago con tarjeta: ₡${total} ...`);
+  //       clearCart();
+  //       break;
+  //     default:
+  //       alert("Selecciona un método de pago");
+  //   }
+  // };
 
   // Si el carrito está vacío, lo indicamos
   if (cart.length === 0) {

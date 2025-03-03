@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 import { useSupabase } from '@/app/supabase-provider/provider'
+import { Session } from '@supabase/supabase-js';
+import Link from 'next/link';
+
 import { useRouter, usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
@@ -12,11 +15,12 @@ interface NavLink {
   highlight?: boolean // Indica si se destaca con un btn-primary
 }
 
+
 export default function Navbar() {
   const { supabase } = useSupabase()
   const router = useRouter()
   const pathname = usePathname()
-  const [session, setSession] = useState<any>(null)
+  const [session, setSession] = useState<Session | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Cargar la sesión inicial y escuchar cambios
@@ -39,8 +43,6 @@ export default function Navbar() {
     await supabase.auth.signOut()
     router.push('/') // Redirige al home
   }
-
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
 
   // Define tus links principales
   const navLinks: NavLink[] = [
@@ -74,7 +76,7 @@ export default function Navbar() {
 
         {/* 🔹 Logo / Branding */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-3 group">
             {/* Logo SVG de Sobrepoxi */}
             <svg
               width="40"
@@ -108,7 +110,7 @@ export default function Navbar() {
             <span className="text-2xl font-extrabold text-primary dark:text-white hover:opacity-90 transition">
               Sobrepoxi
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* 🔹 Desktop Menu */}

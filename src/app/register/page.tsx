@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { useSupabase } from '@/app/supabase-provider/provider'
 import { FaEnvelope, FaLock, FaUser, FaPhone, FaCalendar } from 'react-icons/fa'
 import { Tooltip } from 'react-tooltip' // Ejemplo: npm install react-tooltip (o quítalo si no lo quieres)
@@ -48,7 +47,7 @@ export default function RegisterPage() {
       } else {
         setConfirmationMsg('Registro exitoso. Revisa tu correo y confirma tu cuenta antes de iniciar sesión.')
       }
-    } catch (err) {
+    } catch {
       setErrorMsg('Error inesperado. Intenta de nuevo.')
     } finally {
       setLoading(false)

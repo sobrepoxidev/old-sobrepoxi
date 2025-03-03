@@ -26,12 +26,10 @@ interface SessionType {
 
 interface TicketTypesPageClientProps {
   ticketTypes: Ticket[];
-  session: SessionType;
 }
 
 export default function TicketTypesPageClient({
   ticketTypes,
-  session,
 }: TicketTypesPageClientProps) {
   const { cart, addToCart } = useCart();
   const cartCount = cart.length;

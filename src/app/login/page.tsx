@@ -25,7 +25,7 @@ export default function LoginPage() {
     setLoading(true)
     setErrorMsg('')
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const {error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
@@ -35,8 +35,8 @@ export default function LoginPage() {
         // llevar  a la página de inicio
         router.push('/')
       }
-    } catch (error: any) {
-      setErrorMsg(error.message)
+    } catch (error: unknown) {
+      setErrorMsg(error instanceof Error ? error.message : 'Unknown error occurred')
     } finally {
       setLoading(false)
     }

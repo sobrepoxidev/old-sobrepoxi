@@ -47,8 +47,9 @@ export default function UserSelection({
       const { purchaseId } = await res.json()
       // Redireccionamos a la página de edición
       router.push(`/tickets/edit/${purchaseId}`)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: Error | unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }

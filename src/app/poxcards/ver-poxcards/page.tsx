@@ -19,8 +19,7 @@ export default async function TicketTypesPage() {
 
   const { data: ticketTypes, error } = await supabase.from('ticket_types').select('*');
   console.log('ticketTypes: ', ticketTypes);
-  const { data: products, error: err } = await supabase.from('products').select('*');
-  console.log('products: ', products);
+
 
   if (error) {
     return (
@@ -46,7 +45,6 @@ export default async function TicketTypesPage() {
     <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-0">
        <TicketTypesPageClient
         ticketTypes={ticketTypes}
-        session={session}
       />
   
       

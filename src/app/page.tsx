@@ -5,18 +5,15 @@ import Link from 'next/link';
 import FloatingTicket from '@/components/user/FloatingTicket';
 
 const HomePage: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+ 
   const [activeService, setActiveService] = useState(0);
   const [mounted, setMounted] = useState(false)
 
   // Controlar efectos de scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    
     setMounted(true);
-    return () => window.removeEventListener('scroll', handleScroll);
+   
   }, []);
 
   // Datos de servicios para facilitar mantenimiento
@@ -404,7 +401,7 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-text-secondary italic">
-                  "El trabajo que realizó Sobrepoxi en mi hogar superó todas mis expectativas. El diseño, la calidad y la atención al detalle fueron excepcionales."
+                  &ldquo;El trabajo que realizó Sobrepoxi en mi hogar superó todas mis expectativas. El diseño, la calidad y la atención al detalle fueron excepcionales.&rdquo;
                 </p>
               </div>
             ))}
