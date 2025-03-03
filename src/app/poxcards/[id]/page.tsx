@@ -4,13 +4,12 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import TicketDetailClient from "@/components/user/TicketDetailClient";
 
-interface TicketPageParams {
-  params: {
-    id: string;
-  }
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function TicketTypeDetailPage({ params }: TicketPageParams) {
+export default async function TicketTypeDetailPage({ params }: Props) {
   const { id } = params;
 
   // Validar param
