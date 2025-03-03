@@ -4,14 +4,13 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import TicketDetailClient from "@/components/user/TicketDetailClient";
 
-// Update the Props type to match Next.js expectations
-type Props = {
+interface TicketPageParams {
   params: {
     id: string;
-  };
-};
+  }
+}
 
-export default async function TicketTypeDetailPage({ params }: Props) {
+export default async function TicketTypeDetailPage({ params }: TicketPageParams) {
   const { id } = params;
 
   // Validar param
