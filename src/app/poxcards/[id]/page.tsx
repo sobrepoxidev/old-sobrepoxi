@@ -5,12 +5,8 @@ import { cookies } from "next/headers";
 import TicketDetailClient from "@/components/user/TicketDetailClient";
 import { Suspense } from "react";
 
-type Props = {
-  params: { id: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
 
-export default async function TicketDetailPage({ params }: Props) {
+export default async function TicketDetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
 
   // Validar param
