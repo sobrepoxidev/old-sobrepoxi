@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function CheckoutPage() {
   const router = useRouter();
   // Se extraen la funciones del carrito, incluyendo removeFromCart
-  const { cart, clearCart, removeFromCart } = useCart();
+  const { cart, removeFromCart } = useCart();
   const [paymentMethod, setPaymentMethod] = useState<"sinpe" | "paypal" | "transfer" | "card" | null>("sinpe");
 
   // Calcula el total al renderizar (se actualiza al eliminar)

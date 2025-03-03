@@ -16,14 +16,6 @@ interface Ticket {
   image_url?: string;
 }
 
-interface SessionType {
-  user?: {
-    user_metadata?: {
-      full_name?: string;
-    };
-  };
-}
-
 interface TicketTypesPageClientProps {
   ticketTypes: Ticket[];
 }
