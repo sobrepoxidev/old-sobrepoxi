@@ -18,7 +18,7 @@ export default function FloatingTicket() {
   
       {/* 🎟️ Botón de comprar ticket */}
       <Link
-        href="/tickets"
+        href="/poxcards"
         className="btn-primary hover:bg-secondary-hover text-white px-4 sm:px-5 py-2 text-sm font-bold rounded-lg transition-all w-full sm:w-auto text-center"
       >
         Comprar Ticket Digital

@@ -8,7 +8,6 @@ import { Suspense } from "react";
 
 type tParams = Promise<{ id: string }>;
 export default async function TicketDetailPage(props: { params: tParams }) {
-  
   const { id } = await props.params;
   console.log('id del server component : ', id);
 
