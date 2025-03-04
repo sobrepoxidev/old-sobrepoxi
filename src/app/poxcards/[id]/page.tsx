@@ -16,7 +16,6 @@ export default async function TicketDetailPage({
 }) {
   
   const { id } = params;
-  console.log('params del server component : ', _searchParams);
   console.log('id del server component : ', id);
 
   // Validar param
