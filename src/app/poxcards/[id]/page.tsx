@@ -14,8 +14,9 @@ export default async function TicketDetailPage({
   params: { id: string };
   _searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  _searchParams;
+  
   const { id } = params;
+  console.log('params del server component : ', _searchParams);
   console.log('id del server component : ', id);
 
   // Validar param
