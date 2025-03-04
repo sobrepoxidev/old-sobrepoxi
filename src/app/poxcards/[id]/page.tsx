@@ -6,18 +6,10 @@ import TicketDetailClient from "@/components/user/TicketDetailClient";
 import { Suspense } from "react";
 
 
-
-export default async function TicketDetailPage(
-  {
-    params,
-   
-  }: {
-    params: { id: string };
-    
-  }
-) {
+type tParams = Promise<{ id: string }>;
+export default async function TicketDetailPage(props: { params: tParams }) {
   
-  const { id } = params;
+  const { id } = await props.params;
   console.log('id del server component : ', id);
 
   // Validar param
