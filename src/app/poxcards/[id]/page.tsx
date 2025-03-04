@@ -10,7 +10,7 @@ import { Suspense } from "react";
 export default async function TicketDetailPage(
   {
     params,
-    searchParams = {}
+   
   }: {
     params: { id: string };
     searchParams?: { [key: string]: string | string[] | undefined };
