@@ -6,8 +6,13 @@ import TicketDetailClient from "@/components/user/TicketDetailClient";
 import { Suspense } from "react";
 
 
-export default async function TicketDetailPage({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+export default async function TicketDetailPage({ params }: Props) {
   const { id } = params;
+  console.log('id del server component : ', id);
 
   // Validar param
   if (!id) {
@@ -15,7 +20,7 @@ export default async function TicketDetailPage({ params }: { params: { id: strin
   }
 
   // Crear cliente de Supabase para Server Components
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient({ cookies: () =>  cookies() });
 
   // Fetch de datos
   const { data: ticketType, error } = await supabase

@@ -20,6 +20,7 @@ interface TicketTypesPageClientProps {
   ticketTypes: Ticket[];
 }
 
+
 export default function TicketTypesPageClient({
   ticketTypes,
 }: TicketTypesPageClientProps) {
