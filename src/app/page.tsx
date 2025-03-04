@@ -87,10 +87,10 @@ const HomePage: React.FC = () => {
                 Creamos soluciones personalizadas para transformar cada rincón de tu hogar o empresa con elegancia y funcionalidad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/about" className="btn-primary px-6 py-3 text-lg">
+                <Link href="/about-us" className="btn-primary px-6 py-3 text-lg">
                   Conócenos Más
                 </Link>
-                <Link href="/contact" className="btn-secondary px-6 py-3 text-lg">
+                <Link href="/contact-us" className="btn-secondary px-6 py-3 text-lg">
                   Consulta Gratis
                 </Link>
               </div>
