@@ -6,11 +6,14 @@ import TicketDetailClient from "@/components/user/TicketDetailClient";
 import { Suspense } from "react";
 
 
-type Props = {
-  params: { id: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-export default async function TicketDetailPage({ params }: Props) {
+
+export default async function TicketDetailPage({
+  params,
+  _searchParams
+}: {
+  params: { id: string };
+  _searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const { id } = params;
   console.log('id del server component : ', id);
 
