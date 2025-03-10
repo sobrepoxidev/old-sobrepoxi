@@ -5,6 +5,8 @@ import { useCart } from "@/components/context/CartContext";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import html2canvas from "html2canvas";
+import { Database } from '@/types-db';
+type UserTicket = Database['user_tickets'];
 
 // ------------------- 1) Lista de stickers base -------------------
 const BASE_STICKERS = [
@@ -207,7 +209,7 @@ type AddedText = {
 };
 
 type EditableCardProps = {
-  card: any;
+  card: UserTicket;
 };
 
 // ------------------- 5) Componente EditableCard -------------------
@@ -447,7 +449,7 @@ const EditableCard = ({ card }: EditableCardProps) => {
               <div>
                 <span className="font-semibold">Serie: </span>
                 <span className="text-indigo-600 dark:text-indigo-400">
-                  {card.series || "000"}
+                  {card.serie || "000"}
                 </span>
               </div>
             </div>

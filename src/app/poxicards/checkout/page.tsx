@@ -427,7 +427,7 @@ export default function CheckoutWizardPage() {
           createdOrderId={createdOrderId}
         />
       )}
-      {currentStep === 4 && <Step4 paymentMethod={paymentMethod as PaymentMethod} createdOrderId={createdOrderId as number} />}
+      {currentStep === 4 && <Step4 paymentMethod={paymentMethod as PaymentMethod}  />}
     </main>
   );
 }
@@ -835,11 +835,10 @@ function Step3_PaymentDetails({
 
 interface Step4Props {
   paymentMethod: PaymentMethod;
-  createdOrderId: number;
 
 }
 
-function Step4({ paymentMethod, createdOrderId }: Step4Props) {
+function Step4({ paymentMethod }: Step4Props) {
   const router = useRouter();
 
   // const handleDownload = () => {

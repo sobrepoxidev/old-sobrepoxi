@@ -42,7 +42,7 @@ export default function Step3_PayPal({
                         }
                         return data.paypalOrderId; // Devuelves el ID de la orden generada en PayPal
                     }}
-                    onApprove={async (data, actions) => {
+                    onApprove={async (data) => {
                         // PayPal devolvió: data.orderID
                         const paypalOrderId = data.orderID;
                         setLoading(true);
@@ -66,22 +66,9 @@ export default function Step3_PayPal({
                         }
                     }}
                     onCancel={async () => {
-                        onPaymentError("El usuario canceló el pago en PayPal (Se asume correcto en sandbox).");
-                        setLoading(true);
-
-                        // Capturar la orden en PayPal
-                        const res = await fetch("/api/paypal/capture-order", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                paypalOrderId: "TEST PAYPAL ID ORDER BUYED",
-                                orderId: createdOrderId
-                            })
-                        });
-                        const result = await res.json();
-                        console.log("PayPal Order Canceled: ", result);
-                        setLoading(false);
-                        onPaymentSuccess();
+                        
+                        console.log("PayPal Order Canceled");
+                        
                     }}
                     onError={(err) => {
                         console.error("PayPal Error:", err);

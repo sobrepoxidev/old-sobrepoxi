@@ -51,8 +51,9 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ status: "COMPLETED" }, { status: 200 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Error captureOrder route:", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
