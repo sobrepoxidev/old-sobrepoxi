@@ -41,6 +41,7 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
+    setSession(null);
     router.push('/') // Redirige al home
   }
 
