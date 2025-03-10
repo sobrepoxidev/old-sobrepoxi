@@ -72,7 +72,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 shadow-md bg-white dark:bg-[#2D3748] transition-colors">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-full mx-auto px-4 py-1 flex items-center justify-between">
 
         {/* 🔹 Logo / Branding */}
         <div className="flex items-center">

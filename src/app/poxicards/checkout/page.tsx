@@ -359,7 +359,7 @@ export default function CheckoutWizardPage() {
   if (cart.length === 0 && paymentStatus === null) {
     return (
       <main className="max-w-3xl mx-auto p-6">
-        <button onClick={() => router.back()} className="bg-gray-200 p-2 rounded-md">
+        <button onClick={() => router.back()} className="bg-gray-200 p-2 rounded-md dark:bg-gray-800">
           &larr; Regresar
         </button>
         <h1 className="text-2xl font-bold mt-4">Carrito vacío</h1>
@@ -374,7 +374,7 @@ export default function CheckoutWizardPage() {
         {currentStep > 1 && currentStep <= 3 && (
           <button
             onClick={goBack}
-            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition"
+            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           >
             &larr; Paso anterior
           </button>
@@ -382,7 +382,7 @@ export default function CheckoutWizardPage() {
         {currentStep === 1 && (
           <button
             onClick={() => router.back()}
-            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition"
+            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           >
             &larr; Regresar
           </button>
@@ -506,7 +506,7 @@ function Step1_SelectNumbersSeries({
 
             {/* Si el usuario ya eligió un número, mostramos la selección de serie */}
             {chosenNum != null && (
-              <div className="mt-3 p-3 border rounded bg-gray-50">
+              <div className="mt-3 p-3 border rounded bg-gray-50 dark:bg-gray-800">
                 <p className="text-sm">
                   Número seleccionado:{" "}
                   <b>{chosenNum < 10 ? `0${chosenNum}` : chosenNum}</b>
@@ -558,12 +558,12 @@ function SelectSeries({
   };
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 ">
       <label className="block text-sm font-medium mb-1">Serie disponible:</label>
       <select
         value={chosenSerie ?? ""}
         onChange={handleChangeSerie}
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded dark:bg-gray-800"
       >
         <option value="">
           {freeSeries.length === 0 ? "No hay series libres" : "-- Selecciona serie --"}
@@ -599,7 +599,7 @@ function Step2_SelectMethod({
       <h2 className="text-xl font-semibold mb-4">Paso 2: Método de Pago</h2>
 
       {/* Lista de items en el carrito, con opción de eliminarlos */}
-      <div className="mb-4 bg-white rounded shadow p-4">
+      <div className="mb-4 bg-white rounded shadow p-4 dark:bg-gray-800">
         {cart.map((item) => (
           <li key={item.local_id} className="flex items-center justify-between border-b py-2">
             <div>
@@ -673,8 +673,8 @@ function PaymentOption({
   return (
     <div
       onClick={onClick}
-      className={`cursor-pointer p-4 border-2 rounded-lg text-center transition ${selected ? "border-blue-500 bg-blue-50" : "border-gray-200 hover:border-gray-400"
-        }`}
+      className={`cursor-pointer p-4 border-2 rounded-lg text-center transition ${selected ? "border-blue-500 bg-blue-50 dark:bg-gray-800"  : "border-gray-200 hover:border-gray-400 dark:border-gray-700 dark:hover:border-gray-500"}`}
+        
     >
       <img src={img} alt={label} className="mx-auto w-16 h-16 object-contain" />
       <span className="block mt-2 font-semibold">{label}</span>
@@ -721,7 +721,7 @@ function Step3_PaymentDetails({
     switch (paymentMethod) {
       case "sinpe":
         return (
-          <div className="mt-4 bg-blue-50 border border-blue-300 rounded-md p-4">
+          <div className="mt-4 bg-blue-50 border border-blue-300 rounded-md p-4 dark:bg-gray-800">
             <p className="text-sm mb-2">
               Monto total: <b>₡{total}</b>.
               Envia tu pago vía Sinpe con la siguiente info:
@@ -730,11 +730,11 @@ function Step3_PaymentDetails({
             <select
               value={bancoSeleccionado?.nombre || ""}
               onChange={handleBancoChange}
-              className="w-full p-2 border rounded-md mb-2"
+              className="w-full p-2 border rounded-md mb-2 dark:bg-gray-800"
             >
               <option value="">-- Selecciona Banco --</option>
               {bancos.map((b, idx) => (
-                <option key={idx} value={b.nombre}>
+                <option key={idx} value={b.nombre} >
                   {b.nombre}
                 </option>
               ))}

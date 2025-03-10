@@ -53,112 +53,101 @@ const projects = [
 export default function HomePage() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground transition-colors">
-      {/* 
-        FloatingTicket asume que es un Client Component, 
-        pero puedes usarlo sin problema en un Server Component
-      */}
       <FloatingTicket />
 
-      {/* 🌟 Hero Section */}
-      <section className="relative w-full h-screen flex flex-col justify-center items-center">
-  {/* Imagen de fondo */}
-  <div className="absolute inset-0 overflow-hidden">
-    <Image
-      src="/home_1.webp"
-      alt="Muebles exclusivos"
-      fill
-      style={{ objectFit: "cover" }}
-      quality={80}
-      className="transition-transform duration-[10000ms] ease-in-out scale-105 animate-subtle-zoom"
-      priority
-    />
-  </div>
+      {/* 🌟 Hero Section - OPTIMIZADO */}
+      <section className="relative w-full h-[calc(100vh-50px)] md:h-[calc(100vh-48px)] flex flex-col justify-center items-center">
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/home_1.webp"
+            alt="Muebles exclusivos"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            quality={80}
+            className="transition-transform duration-[10000ms] ease-in-out scale-105 animate-subtle-zoom"
+            priority
+          />
+        </div>
 
-  {/* Capa de gradiente + contenido */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-center items-center text-center px-4 h-full">
-    <div className="max-w-4xl sm:max-w-5xl md:max-w-6xl px-4 pt-0 sm:pt-10 pb-6 rounded-lg backdrop-blur-sm bg-black/10 text-center">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
-        Diseño & Mobiliario <span className="text-secondary">Exclusivo</span> para Espacios Únicos
-      </h1>
-      <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-        Creamos soluciones personalizadas para transformar cada rincón de tu hogar o empresa con elegancia y funcionalidad.
-      </p>
+        {/* Capa de gradiente + contenido */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-center items-center text-center px-4">
+          <div className="max-w-4xl sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg backdrop-blur-sm bg-black/10 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+              Diseño & Mobiliario <span className="text-secondary">Exclusivo</span> para Espacios Únicos
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
+              Creamos soluciones personalizadas para transformar cada rincón de tu hogar o empresa con elegancia y funcionalidad.
+            </p>
 
-      {/* Botones */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <Link href="/about-us" className="btn-primary px-6 py-3 text-lg w-full sm:w-auto">
-          Conócenos Más
-        </Link>
-        <Link href="/contact-us" className="btn-secondary px-6 py-3 text-lg w-full sm:w-auto">
-          Consulta Gratis
-        </Link>
-      </div>
-    </div>
-  </div>
+            {/* Botones */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/about-us" className="btn-primary px-5 py-2.5 text-base sm:text-lg w-full sm:w-auto">
+                Conócenos Más
+              </Link>
+              <Link href="/contact-us" className="btn-secondary px-5 py-2.5 text-base sm:text-lg w-full sm:w-auto">
+                Consulta Gratis
+              </Link>
+            </div>
+          </div>
+        </div>
 
-  {/* Flecha ajustada */}
-  <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center">
-    <svg
-      className="w-12 sm:w-10 h-28 sm:h-28 text-white animate-bounce"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
-  </div>
-</section>
-
-
+        {/* Flecha ajustada - OPTIMIZADA para ser visible sin scroll */}
+        <div className="absolute bottom-20 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
+          <svg
+            className="w-10 h-10 text-white animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </section>
 
       {/* 💼 Servicios Destacados */}
-      <section className="py-16 md:py-24 bg-card">
+      <section className="py-12 md:py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <span className="relative inline-block">
                 Nuestros Servicios
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
               </span>
             </h2>
-            <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
               Soluciones a medida para cada espacio con el sello distintivo de Sobrepoxi
             </p>
           </div>
 
-          {/*
-            Aquí, en vez de manejar el estado "activeService" en toda la página,
-            delegamos la lógica de carousel/hover a un Client Component.
-          */}
           <ServicesCarousel services={services} />
         </div>
       </section>
 
       {/* 🏆 Trabajos Destacados */}
-      <section className="py-16 md:py-24 bg-background">
-        {/* ... igual que antes ... */}
+      <section className="py-12 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <span className="relative inline-block">
                 Proyectos Recientes
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
               </span>
             </h2>
-            <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
               Explorá nuestros trabajos más recientes y dejate inspirar
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="group relative rounded-xl shadow-lg">
-                <div className="relative w-full h-64">
+              <div key={project.id} className="group relative rounded-xl shadow-lg overflow-hidden h-64 sm:h-72">
+                <div className="relative w-full h-full">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-xl"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity group-hover:opacity-90 pointer-events-none" />
@@ -166,7 +155,7 @@ export default function HomePage() {
                   <span className="inline-block px-3 py-1 bg-secondary text-black text-xs font-semibold rounded-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.category}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
                   <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <Link href={`/projects/${project.id}`} className="inline-flex items-center text-white hover:text-secondary transition-colors">
                       Ver proyecto
@@ -183,34 +172,34 @@ export default function HomePage() {
       </section>
 
       {/* 📞 Llamado a la Acción Mejorado */}
-      <section className="py-16 md:py-24 bg-card relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-card relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <Image
             src="/bg.webp"
             alt="Background pattern"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
           />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-card bg-opacity-80 backdrop-blur-sm rounded-2xl p-8 sm:p-12 shadow-xl">
+          <div className="bg-card bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 sm:p-10 shadow-xl">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
                   ¿Listo para transformar tus espacios?
                 </h2>
-                <p className="text-lg text-text-secondary mb-8">
+                <p className="text-base md:text-lg text-text-secondary mb-6">
                   Contáctanos para iniciar tu proyecto con los mejores expertos en diseño y mobiliario. Primera consulta completamente gratis.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/contact" className="btn-primary px-6 py-3 text-lg inline-flex items-center">
+                  <Link href="/contact" className="btn-primary px-5 py-2.5 text-base md:text-lg inline-flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                     </svg>
                     Contáctanos
                   </Link>
-                  <Link href="/gallery" className="btn-tertiary px-6 py-3 text-lg">
+                  <Link href="/gallery" className="btn-tertiary px-5 py-2.5 text-base md:text-lg">
                     Ver galería
                   </Link>
                 </div>
@@ -235,24 +224,24 @@ export default function HomePage() {
       </section>
 
       {/* 🎟 Call to Action - Tickets Mejorado */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-secondary ">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-5 gap-8 items-center">
             <div className="md:col-span-3">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight text-white">
                 🎟 ¡Participá en nuestro sorteo exclusivo de mobiliario!
               </h2>
-              <p className="text-lg mb-8 max-w-2xl">
+              <p className="text-base md:text-lg mb-6 max-w-2xl text-white">
                 Solo por ₡1000 obtenés un boleto personalizado y participás en nuestro sorteo mensual. Podés ganar muebles exclusivos y asesorías de diseño.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/tickets" className="btn px-6 py-3 text-lg bg-white dark:bg-gray-800 text-primary hover:bg-gray-100 font-bold inline-flex items-center">
+                <Link href="/tickets" className="btn px-5 py-2.5 text-base md:text-lg bg-white dark:bg-gray-800 text-primary hover:bg-gray-100 font-bold inline-flex items-center">
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
                   </svg>
                   Comprar Ticket
                 </Link>
-                <Link href="/terms" className="hover:text-gray-200 underline px-6 py-3 text-lg inline-flex items-center">
+                <Link href="/terms" className="text-white hover:text-gray-200 underline px-5 py-2.5 text-base md:text-lg inline-flex items-center">
                   Ver términos y condiciones
                 </Link>
               </div>
@@ -263,8 +252,8 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-yellow-400 opacity-10 rounded-lg blur-xl" />
                 <div className="relative backdrop-blur-sm bg-white/10 p-6 rounded-lg border border-yellow-600">
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-4">Ticket #4269</h3>
-                    <div className="w-32 h-32 mx-auto mb-4 relative">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">Ticket #4269</h3>
+                    <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 relative">
                       <div className="absolute inset-0 bg-primary rounded-full opacity-30 animate-ping" />
                       <svg
                         width="40"
@@ -273,32 +262,24 @@ export default function HomePage() {
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-full h-full"
                       >
-
                         <circle cx="100" cy="100" r="100" fill="#0078BE" />
-
-
                         <path
                           d="M20 85 C50 30, 150 30, 180 85 C160 120, 40 120, 20 85 Z"
                           fill="#38B6FF"
                           opacity="0.9"
                         />
-
-
-
                         <path
                           d="M20 100 C50 70, 150 70, 180 100 C160 140, 40 140, 20 100 Z"
                           fill="#005AA7"
                         />
-
-
                         <path
                           d="M20 120 C50 180, 150 180, 180 120 C160 170, 40 170, 20 120 Z"
                           fill="#003366"
                         />
                       </svg>
                     </div>
-                    <p className="text-lg font-medium mb-2">Sorteo Febrero 2025</p>
-                    <div className="text-sm opacity-80 mb-4">¡Participá y ganá mobiliario exclusivo!</div>
+                    <p className="text-lg font-medium mb-2 text-white">Sorteo Febrero 2025</p>
+                    <div className="text-sm opacity-80 mb-4 text-white">¡Participá y ganá mobiliario exclusivo!</div>
                     <div className="inline-block px-4 py-2 bg-secondary/80 rounded-lg text-black font-bold">
                       Premio: *******
                     </div>
@@ -310,11 +291,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 📱 Testimonios con Slider (Nuevo) */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* 📱 Testimonios con Slider */}
+      <section className="py-12 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <span className="relative inline-block">
                 Lo que dicen nuestros clientes
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
@@ -322,18 +303,12 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Alejandra Carballo", "Jesús Brenes", "Glenn Gerr"].map((testimonial) => (
-              <div key={testimonial} className="card bg-card hover:shadow-xl transition-all duration-300">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {["Alejandra Carballo", "Jesús Brenes", "Glenn Gerr"].map((testimonial, index) => (
+              <div key={testimonial} className="card bg-card p-6 hover:shadow-xl transition-all duration-300 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                    {/* <Image
-                      src={`/testimonial-${testimonial}.webp`}
-                      alt="Cliente"
-                      width={48}
-                      height={48}
-                      className="rounded-full"
-                    /> */}
+                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                    <span className="text-gray-600 font-bold text-lg">{testimonial.charAt(0)}</span>
                   </div>
                   <div>
                     <h3 className="font-bold">{testimonial}</h3>
@@ -354,6 +329,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      
       {/* Botón Flotante de WhatsApp */}
       <WhatsAppButton />
     </div>

@@ -173,7 +173,7 @@ export default function TicketTypesPageClient({
             {/* Botones */}
             <div className="mt-4 flex flex-col gap-2">
               <Link
-                href={`/poxcards/${ticket.id}`}
+                href={`/poxicards/${ticket.id}`}
                 className="block w-full text-center font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-md transition hover:bg-indigo-600 hover:text-white"
               >
                 Ver Detalles
