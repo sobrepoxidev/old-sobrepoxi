@@ -8,6 +8,7 @@ import Step3_PayPal from "@/components/user/StepPaypal";
 import { supabase } from "@/lib/supabaseClient";
 import { sendCartEmail } from "@/app/actions/sendCartEmail";
 import { Database } from '@/types-db';
+import Image from "next/image";
 type UserTicket = Database['user_tickets'];
 
 type PaymentMethod = "sinpe" | "paypal" | "transfer" | "card";
@@ -676,7 +677,16 @@ function PaymentOption({
       className={`cursor-pointer p-4 border-2 rounded-lg text-center transition ${selected ? "border-blue-500 bg-blue-50 dark:bg-gray-800"  : "border-gray-200 hover:border-gray-400 dark:border-gray-700 dark:hover:border-gray-500"}`}
         
     >
-      <img src={img} alt={label} className="mx-auto w-16 h-16 object-contain" />
+      
+      <Image
+        src={img}
+        alt={label}
+        width={64}
+        height={64}
+        layout="fixed"
+        className="mx-auto"
+      
+      />
       <span className="block mt-2 font-semibold">{label}</span>
     </div>
   );

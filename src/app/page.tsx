@@ -304,7 +304,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {["Alejandra Carballo", "Jesús Brenes", "Glenn Gerr"].map((testimonial, index) => (
+            {["Alejandra Carballo", "Jesús Brenes", "Glenn Gerr"].map((testimonial) => (
               <div key={testimonial} className="card bg-card p-6 hover:shadow-xl transition-all duration-300 rounded-lg">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
