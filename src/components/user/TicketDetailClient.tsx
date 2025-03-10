@@ -54,7 +54,7 @@ export default function TicketDetailClient({ ticketType }: TicketDetailClientPro
   }
 
   return (
-    <main className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-8">
+    <main className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-14">
       {/* Encabezado con título y carrito */}
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>

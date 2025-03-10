@@ -869,7 +869,7 @@ function Step4({ paymentMethod }: Step4Props) {
   };
 
   return (
-    <section className="mt-6 p-6 bg-green-100 border border-green-300 rounded-lg shadow-md">
+    <section className="mt-6 p-6 bg-green-100 border border-green-300 rounded-lg shadow-md py-14">
       <p className="text-lg text-gray-700 mb-6">
         Tu compra se ha procesado correctamente. Al descargar tus PoxiCards se iniciará automáticamente un proceso de personalización para que puedas comenzar a disfrutar de ellas de inmediato.
       </p>

@@ -553,7 +553,7 @@ export default function PersonalizacionPage() {
   const { cartBuyed } = useCart();
 
   return (
-    <main className="p-4 min-h-screen bg-gray-50 dark:bg-gray-900">
+    <main className="p-4 min-h-screen bg-gray-50 dark:bg-gray-900 py-14">
       <h1 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">
         Personaliza tus PoxiCards
       </h1>

@@ -43,7 +43,7 @@ export default async function TicketTypesPage() {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-0">
+    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-14">
        <TicketTypesPageClient
         ticketTypes={ticketTypes}
       />

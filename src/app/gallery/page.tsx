@@ -37,7 +37,7 @@ export default async function ServicesPage() {
 
   // Renderizar el Client Component con los datos obtenidos
   return (
-    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-8">
+    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-14">
       <ServiceProductsPageClient products={products} />
     </main>
   );
