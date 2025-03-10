@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useSupabase } from '@/app/supabase-provider/provider'
-import { FaEnvelope, FaLock, FaUser, FaPhone, FaCalendar } from 'react-icons/fa'
+import { FaEnvelope, FaLock, FaUser, FaPhone } from 'react-icons/fa'
 import { Tooltip } from 'react-tooltip' // Ejemplo: npm install react-tooltip (o quítalo si no lo quieres)
 
 export default function RegisterPage() {
@@ -13,7 +13,6 @@ export default function RegisterPage() {
   const [confirmPass, setConfirmPass] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [birthdate, setBirthdate] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
   const [loading, setLoading] = useState(false)
   const [mounted, setMounted] = useState(false)
