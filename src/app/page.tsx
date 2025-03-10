@@ -26,6 +26,7 @@ const services = [
     title: 'Restauración y Remodelación',
     description: 'Damos nueva vida a tus muebles y espacios con acabados profesionales que perduran.',
     image: '/home_4.webp'
+    //bajar calidad de imagen
   }
 ];
 

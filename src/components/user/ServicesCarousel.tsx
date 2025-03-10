@@ -34,6 +34,7 @@ export default function ServicesCarousel({ services }: Props) {
                 width={400}
                 height={300}
                 className="rounded-lg transform transition-transform duration-500 group-hover:scale-110"
+                
               />
               <div className="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                 <span className="btn-secondary px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
