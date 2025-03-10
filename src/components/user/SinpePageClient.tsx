@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 import { supabase } from "@/lib/supabaseClient";
 
@@ -21,8 +22,10 @@ interface SinpePaymentProps {
     minNumber: number;
     maxNumber: number;
     total: number;
+    //recibe setIsPaid que es un useState
+    setIsPaid: React.Dispatch<React.SetStateAction<boolean>>;
   }
-export default function SinpePayment({ ticketIds, minNumber, maxNumber, total }: SinpePaymentProps) {
+export default function SinpePayment({ ticketIds, minNumber, maxNumber, total, setIsPaid }: SinpePaymentProps) {
   const router = useRouter();
   type Banco = {
     nombre: string;
@@ -98,7 +101,15 @@ export default function SinpePayment({ ticketIds, minNumber, maxNumber, total }:
       return;
     }
 
-    router.push("/personalizar-ticket");
+    // Aquí se puede enviar la información al servidor
+    console.log("Información del pago:");
+    console.log("Banco:", bancoSeleccionado?.nombre);
+    console.log("Número seleccionado:", numeroSeleccionado);
+    console.log("Últimos 4 dígitos:", ultimos4);
+    console.log("Total a pagar:", total);
+    setIsPaid(true);
+    alert("Fin en component SINPE");
+    //router.push("/personalizar-ticket");
   };
 
   return (

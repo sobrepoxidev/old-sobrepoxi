@@ -2,62 +2,147 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
+import { Database } from '@/types-db';
 
-interface Ticket {
-  id: number;
-  
-  premio: string;
-  min_number?: number;
-  max_number?: number;
-  date?: string;
-  time?: string;
-  costo: number;
-  image_url?: string;
-}
+type UsertTicket = Database['user_tickets'];
 
 interface CartContextProps {
-  cart: Ticket[];
-  addToCart: (ticket: Ticket) => void;
+  cart: UsertTicket[];
+  addToCart: (ticket: UsertTicket) => void;
+  addNumberAndSerieToCart: (local_id: number, number: number, serie: number) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
+  cartBuyed: UsertTicket[];
+  addToCartBuyed: (ticket: UsertTicket) => void;
+  addManyToCartBuyed: (tickets: UsertTicket[]) => void
+  removeFromCartBuyed: (id: number) => void;
+  clearCartBuyed: () => void;
 }
 
 const CartContext = createContext<CartContextProps>({
   cart: [],
   addToCart: () => {},
+  addNumberAndSerieToCart: () => {},
   removeFromCart: () => {},
   clearCart: () => {},
+  cartBuyed: [],
+  addToCartBuyed: () => {},
+  addManyToCartBuyed:() => {},
+  removeFromCartBuyed: () => {},
+  clearCartBuyed: () => {},
+
 });
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   // Aquí el estado arranca con un ticket de prueba
-  const [cart, setCart] = useState<Ticket[]>([
+  const [cart, setCart] = useState<UsertTicket[]>([
+    // {
+    //   id: 2,
+    //   premio: "Ticket de prueba",
+    //   costo: 1000,
+    //   min_number: 1,
+    //   max_number: 99,
+    //   date: "2025-03-01",
+    //   time: "10:00",
+    //   image_url: "https://via.placeholder.com/300x200" // opcional
+    // },
+  ]);
+  // Aquí el estado arranca con un ticket de prueba
+  const [cartBuyed, setCartBuyed] = useState<UsertTicket[]>([
     {
-      id: 2,
+      id: 5,
+      local_id: 200,
+      name: "Ticket Dorado", // Nombre del ticket
+      ticket_type_id: null,
+      user_id: null,
+      number: 7,
+      serie: 0,
       premio: "Ticket de prueba",
       costo: 1000,
+      is_locked: false,
+      purchase_date: null,
+      custom_design: null,
+      created_at: new Date().toISOString(),
+      order_id: null,
+      image_url:
+        "https://nvnsptdwijqnetahaojg.supabase.co/storage/v1/object/public/tickets_images//sorteo_1.webp",
+      min_serie: 0,
+      max_serie: 999,
       min_number: 1,
-      max_number: 10,
+      max_number: 99,
       date: "2025-03-01",
       time: "10:00",
-      image_url: "https://via.placeholder.com/300x200" // opcional
+    },
+    {
+      id: 5,
+      local_id: 201,
+      name: "Ticket Dorado",
+      ticket_type_id: null,
+      user_id: null,
+      number: 8,
+      serie: 0,
+      premio: "Ticket de prueba 2",
+      costo: 1000,
+      is_locked: false,
+      purchase_date: null,
+      custom_design: null,
+      created_at: new Date().toISOString(),
+      order_id: null,
+      image_url:
+        "https://nvnsptdwijqnetahaojg.supabase.co/storage/v1/object/public/tickets_images//sorteo_4.webp",
+      min_serie: 0,
+      max_serie: 999,
+      min_number: 1,
+      max_number: 99,
+      date: "2025-03-01",
+      time: "10:00",
     },
   ]);
+  
 
-  const addToCart = (ticket: Ticket) => {
+  const addToCart = (ticket: UsertTicket) => {
     setCart((prev) => [...prev, ticket]);
   };
 
-  const removeFromCart = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+  const addNumberAndSerieToCart = (local_id: number, number: number, serie: number) => {
+    setCart((prev) => prev.map((item) => {
+      if (item.local_id === local_id) {
+        return {
+          ...item,
+          number,
+          serie
+        }
+      }
+      return item;
+    }));
+  };
+
+  const removeFromCart = (local_id: number) => {
+    setCart((prev) => prev.filter((item) => item.local_id !== local_id));
   };
 
   const clearCart = () => {
     setCart([]);
   };
 
+  const addToCartBuyed = (ticket: UsertTicket) => {
+    setCartBuyed((prev) => [...prev, ticket]);
+  };
+
+  const addManyToCartBuyed = (tickets: UsertTicket[]) => {
+    setCartBuyed((prev) => [...prev, ...tickets]);
+  };
+
+  const removeFromCartBuyed = (local_id: number) => {
+    setCartBuyed((prev) => prev.filter((item) => item.local_id !== local_id));
+  };
+
+  const clearCartBuyed = () => {
+    setCartBuyed([]);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, cartBuyed, addToCart, addNumberAndSerieToCart, removeFromCart, clearCart, addToCartBuyed, removeFromCartBuyed, clearCartBuyed, addManyToCartBuyed}}>
       {children}
     </CartContext.Provider>
   );

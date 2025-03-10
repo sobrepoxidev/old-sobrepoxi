@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   } = await supabase.auth.getSession()
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="es" className="h-full">
        
     <body className={`h-full flex flex-col ${inter.className} bg-background text-foreground transition-colors`}>
    
@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Navbar />
 
         {/* 🔹 MAIN que empuja el footer */}
-        <main className="flex-1 max-w-full mx-auto w-full px-0 sm:px-4 lg:px-0 py-2">
+        <main className="flex-1 max-w-full mx-auto w-full ">
           {children}
         </main>
 

@@ -48,8 +48,8 @@ export default function Navbar() {
   const navLinks: NavLink[] = [
     { href: '/', label: 'Inicio' },
     { href: '/about-us', label: 'Sobre nosotros' },
-    { href: '/services', label: 'Productos & Servicios' },
-    { href: '/poxcards', label: 'PoxCards', },
+    { href: '/services', label: 'Galería' },
+    { href: '/poxicards', label: 'PoxiCards', },
     { href: '/contact-us', label: 'Contáctanos' }
   ]
 

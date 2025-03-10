@@ -4,28 +4,67 @@ import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { useCart } from "@/components/context/CartContext";
 import Link from "next/link";
+import { Database } from '@/types-db';
 
-interface Ticket {
-  id: number;
-  premio: string;
-  min_number: number;
-  max_number: number;
-  date: string;
-  time: string;
-  costo: number;
-  image_url?: string;
-}
+type TypeTicket = Database['ticket_types'];
+type UsertTicket = Database['user_tickets'];
 
-interface TicketTypesPageClientProps {
-  ticketTypes: Ticket[];
-}
+// interface Ticket {
+//   id: number;
+//   premio: string;
+//   min_number: number;
+//   max_number: number;
+//   number: number;
+//   serie: number;
+//   min_serie: number;
+//   max_serie: number;
 
+//   date: string;
+//   time: string;
+//   costo: number;
+//   image_url?: string;
+// }
+
+
+
+let counterId = 1;
 
 export default function TicketTypesPageClient({
   ticketTypes,
-}: TicketTypesPageClientProps) {
+}: {
+  ticketTypes: TypeTicket[]
+}) {
+
   const { cart, addToCart } = useCart();
   const cartCount = cart.length;
+  
+  const addUserCart = (ticket: TypeTicket) => {
+    //crea un nuevo user ticket
+    const newUserTicket: UsertTicket = {
+      id : ticket.id,
+      local_id: counterId,
+      name: ticket.premio, // Nombre del ticket
+      ticket_type_id: null,
+      user_id: null,
+      number: null,
+      serie: null,
+      premio: ticket.premio,
+      costo: ticket.costo,
+      is_locked: false,
+      purchase_date: null,
+      custom_design: null,
+      order_id: null,
+      image_url: ticket.image_url, // opcional
+      min_serie: ticket.min_serie,
+      max_serie: ticket.max_serie,
+      min_number: ticket.min_number,
+      max_number: ticket.max_number,
+      date: ticket.date,
+      time: ticket.time,
+    };
+    counterId += 1;
+    addToCart(newUserTicket);
+  }
 
 
   return (
@@ -44,7 +83,7 @@ export default function TicketTypesPageClient({
         {/* Botón Carrito */}
         <Link
           className="flex items-center  gap-2 bg-yellow-400 text-gray-800 px-4 py-2 rounded-md font-bold shadow hover:shadow-lg transition"
-          href="/poxcards/checkout"
+          href="/poxicards/checkout"
         >
           <span className="text-xl">🛒</span>
           <span>Carrito ({cartCount})</span>
@@ -97,7 +136,7 @@ export default function TicketTypesPageClient({
                 <div>
                   <span className="font-semibold">Serie: </span>
                   <span className="text-indigo-600 dark:text-indigo-400">
-                    000 - 999
+                  {ticket.min_serie} - {ticket.max_serie}
                   </span>
                 </div>
               </div>
@@ -141,7 +180,7 @@ export default function TicketTypesPageClient({
               </Link>
 
               <button
-                onClick={() => addToCart(ticket)}
+                onClick={() => addUserCart(ticket)}
                 className="w-full inline-flex items-center justify-center font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md transition hover:bg-indigo-500"
               >
                 Agregar al Carrito

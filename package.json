@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^8.8.2",
+    "@sendgrid/mail": "^8.1.4",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.49.1",
     "@types/qrcode.react": "^1.0.5",
+    "@types/react-resizable": "^3.0.8",
     "canvas": "^3.1.0",
+    "html2canvas": "^1.4.1",
     "konva": "^9.3.18",
     "lucide-react": "^0.476.0",
     "next": "15.1.7",
@@ -21,6 +25,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-konva": "^19.0.3",
+    "react-resizable": "^3.0.5",
     "react-tooltip": "^5.28.0"
   },
   "devDependencies": {

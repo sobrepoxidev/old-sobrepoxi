@@ -18,21 +18,21 @@ export default function TicketsPage() {
       <section className="w-full max-w-6xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative">
 
         <h1 className="w-full text-xl sm:text-6xl px-0 mx-0 font-extrabold text-gray-900 dark:text-white leading-tight text-center">
-          ¡Adquiere tu PoxCard, participa por{" "}
+          ¡Adquiere tu PoxiCard, participa por{" "}
           <span className="text-blue-500">premios increíbles!</span> 🎁🔥
         </h1>
 
         <p className="max-w-3xl text-sm mt-2 sm:text-xl text-gray-700 dark:text-gray-300 ">
-          Compra tu <strong>PoxCard</strong> y participa de cortesía en un sorteo.
+          Compra tu <strong>PoxiCard</strong> y participa de cortesía en un sorteo.
           ¡Podrías ganar <span className="text-blue-400 font-bold">productos increíbles</span>!
         </p>
 
         {/* Botón Principal */}
         <Link
-          href="/poxcards/ver-poxcards"
+          href="/poxicards/ver-poxicards"
           className="mt-3 mb-3 inline-block btn-primary text-sm sm:text-lg px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105"
         >
-          Comprar PoxCard
+          Comprar PoxiCard
         </Link>
 
         {/* Sutiles efectos visuales */}
@@ -48,9 +48,9 @@ export default function TicketsPage() {
 
         {/* Paso 1 */}
         <div className="card text-center p-0 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl bg-gray-100 dark:bg-gray-800">
-          <h3 className="text-xl font-extrabold text-gray-900 dark:text-white mb-2">1. Compra tus PoxCards 🛒</h3>
+          <h3 className="text-xl font-extrabold text-gray-900 dark:text-white mb-2">1. Compra tus PoxiCards 🛒</h3>
           <p className="text-gray-700 dark:text-gray-300 text-sm">
-            Adquiere un <strong>PoxCard digital</strong> por solo ₡1000.
+            Adquiere un <strong>PoxiCard digital</strong> por solo ₡1000.
           </p>
         </div>
 
@@ -65,9 +65,9 @@ export default function TicketsPage() {
 
         {/* Paso 3 */}
         <div className="card text-center rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl bg-gray-100 dark:bg-gray-800">
-          <h3 className="text-xl font-extrabold text-gray-900 dark:text-white mb-2">3. Personaliza y descarga tu PoxCard 🎨</h3>
+          <h3 className="text-xl font-extrabold text-gray-900 dark:text-white mb-2">3. Personaliza y descarga tu PoxiCard 🎨</h3>
           <p className="text-gray-700 dark:text-gray-300 text-sm">
-            Puedes personalizar tu PoxCard con tu número y descargarla para compartir en redes sociales.
+            Puedes personalizar tu PoxiCard con tu número y descargarla para compartir en redes sociales.
           </p>
         </div>
 
@@ -84,8 +84,8 @@ export default function TicketsPage() {
       {/* ⚠️ Aviso Legal */}
       <section className="w-full max-w-3xl mx-auto text-center py-8 px-6 sm:px-12 lg:px-5">
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          La compra del PoxCard digital no implica la compra de una participación en el sorteo.
-          Al adquirir el PoxCard, recibes automáticamente una entrada gratuita como cortesía.
+          La compra del PoxiCard digital no implica la compra de una participación en el sorteo.
+          Al adquirir el PoxiCard, recibes automáticamente una entrada gratuita como cortesía.
         </p>
       </section>
 

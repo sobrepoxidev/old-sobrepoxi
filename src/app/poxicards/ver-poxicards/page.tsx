@@ -35,8 +35,8 @@ export default async function TicketTypesPage() {
 
     return (
       <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-10 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">🎟️ Sorteos Actuales</h1>
-        <p className="text-gray-700 dark:text-gray-300">No hay sorteos disponibles en este momento.</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">PoxiCards Actuales</h1>
+        <p className="text-gray-700 dark:text-gray-300">No hay PoxiCards disponibles en este momento.</p>
       </main>
     );
   }
@@ -46,8 +46,6 @@ export default async function TicketTypesPage() {
        <TicketTypesPageClient
         ticketTypes={ticketTypes}
       />
-  
-      
     </main>
   );
 }
