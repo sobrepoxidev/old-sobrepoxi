@@ -57,7 +57,7 @@ export default function HomePage() {
       <FloatingTicket />
 
       {/* 🌟 Hero Section - OPTIMIZADO */}
-      <section className="relative w-full h-[calc(100vh-50px)] md:h-[calc(100vh-48px)] flex flex-col justify-center items-center">
+      <section className="relative w-full h-[calc(100vh-00px)] md:h-[calc(100vh-0px)] flex flex-col justify-center items-center">
         {/* Imagen de fondo */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
