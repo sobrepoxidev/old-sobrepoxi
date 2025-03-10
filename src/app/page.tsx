@@ -229,20 +229,20 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-5 gap-8 items-center">
             <div className="md:col-span-3">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight text-white">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight ">
                 🎟 ¡Participá en nuestro sorteo exclusivo de mobiliario!
               </h2>
-              <p className="text-base md:text-lg mb-6 max-w-2xl text-white">
+              <p className="text-base md:text-lg mb-6 max-w-2xl ">
                 Solo por ₡1000 obtenés un boleto personalizado y participás en nuestro sorteo mensual. Podés ganar muebles exclusivos y asesorías de diseño.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/tickets" className="btn px-5 py-2.5 text-base md:text-lg bg-white dark:bg-gray-800 text-primary hover:bg-gray-100 font-bold inline-flex items-center">
+                <Link href="/poxicards" className="btn px-5 py-2.5 text-base md:text-lg text-primary hover:bg-gray-100 font-bold inline-flex items-center">
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
                   </svg>
                   Comprar Ticket
                 </Link>
-                <Link href="/terms" className="text-white hover:text-gray-200 underline px-5 py-2.5 text-base md:text-lg inline-flex items-center">
+                <Link href="/about-us" className="hover:text-gray-700 underline px-5 py-2.5 text-base md:text-lg inline-flex items-center">
                   Ver términos y condiciones
                 </Link>
               </div>
@@ -253,7 +253,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-yellow-400 opacity-10 rounded-lg blur-xl" />
                 <div className="relative backdrop-blur-sm bg-white/10 p-6 rounded-lg border border-yellow-600">
                   <div className="text-center">
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">Ticket #4269</h3>
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 ">Ticket #4269</h3>
                     <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 relative">
                       <div className="absolute inset-0 bg-primary rounded-full opacity-30 animate-ping" />
                       <svg
@@ -279,8 +279,8 @@ export default function HomePage() {
                         />
                       </svg>
                     </div>
-                    <p className="text-lg font-medium mb-2 text-white">Sorteo Febrero 2025</p>
-                    <div className="text-sm opacity-80 mb-4 text-white">¡Participá y ganá mobiliario exclusivo!</div>
+                    <p className="text-lg font-medium mb-2 ">Sorteo Febrero 2025</p>
+                    <div className="text-sm opacity-80 mb-4 ">¡Participá y ganá mobiliario exclusivo!</div>
                     <div className="inline-block px-4 py-2 bg-secondary/80 rounded-lg text-black font-bold">
                       Premio: *******
                     </div>

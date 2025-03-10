@@ -71,7 +71,7 @@ export default function Navbar() {
   })
 
   return (
-    <header className="sticky top-0 z-50 shadow-md bg-white dark:bg-[#2D3748] transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 shadow-md bg-white dark:bg-[#2D3748] transition-colors">
       <nav className="max-w-full mx-auto px-4 py-1 flex items-center justify-between">
 
         {/* 🔹 Logo / Branding */}
