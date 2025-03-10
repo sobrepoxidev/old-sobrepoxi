@@ -18,7 +18,7 @@ type CartItem = Database['user_tickets'];
 //   image_url?: string;
 // }
 
-export const sendCartEmail = async (cartData: CartItem[], correo: string | undefined) => {
+export const sendCartEmail = async (cartData: CartItem[], correo: string | undefined, nombreUsuario: string | undefined) => {
   // Validar datos
   if (!cartData || cartData.length === 0) {
     throw new Error('El carrito está vacío');
@@ -46,8 +46,8 @@ export const sendCartEmail = async (cartData: CartItem[], correo: string | undef
       </header>
 
       <div style="padding: 20px;">
-        <p>Estimado cliente,</p>
-        <p>Aquí tienes el detalle de ${cardsTerm.toLowerCase()}:</p>
+        <p>Estimado ${nombreUsuario},</p>
+        <p>Aquí tienes el detalle de ${cardsTerm}:</p>
 
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
           <thead style="background-color: #4a4e69; color: white;">
@@ -87,7 +87,7 @@ export const sendCartEmail = async (cartData: CartItem[], correo: string | undef
 
       <footer style="text-align: center; padding: 20px; background-color: #2b2d42; color: white;">
         <p>© ${new Date().getFullYear()} Sobrepoxi • Todos los derechos reservados</p>
-        <p style="margin-top: 10px;">Contacto: info@sobrepoxi.com • Tel: (+506) 2222-2222</p>
+        <p style="margin-top: 10px;">Contacto: info@sobrepoxi.com • Tel: (+506) 8585-0000</p>
       </footer>
     </div>
   `;

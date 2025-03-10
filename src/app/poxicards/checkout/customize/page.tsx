@@ -6,6 +6,7 @@ import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import html2canvas from "html2canvas";
 import { Database } from '@/types-db';
+import { useSupabase } from "@/app/supabase-provider/provider";
 type UserTicket = Database['user_tickets'];
 
 // ------------------- 1) Lista de stickers base -------------------
@@ -65,6 +66,7 @@ const Draggable = ({
     onDrop?.(e.clientX, e.clientY);
     e.currentTarget.releasePointerCapture(e.pointerId);
   };
+ 
 
   return (
     <div
@@ -362,7 +364,8 @@ const EditableCard = ({ card }: EditableCardProps) => {
         console.error("Error al generar la imagen:", error);
       }
     }
-  }, [card.premio]);
+  }, [card.premio]);  const { session } = useSupabase();
+  const nombreUsuario = session?.user?.user_metadata?.name;
 
   // ---------------------- CardPreview ----------------------
   const CardPreview = () => (
@@ -441,6 +444,7 @@ const EditableCard = ({ card }: EditableCardProps) => {
             <h2 className="text-lg md:text-xl font-bold text-indigo-600 dark:text-indigo-400">
               {card.premio}
             </h2>
+            <h3 className="text-sm md:text-base font-bold text-indigo-400 dark:text-indigo-200">{ nombreUsuario }</h3>
             <div className="grid grid-cols-2 gap-1 text-sm">
               <div>
                 <span className="font-semibold">Número: </span>

@@ -71,8 +71,8 @@ export default function HomePage() {
         </div>
 
         {/* Capa de gradiente + contenido */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-center items-center text-center px-4">
-          <div className="max-w-4xl sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg backdrop-blur-sm bg-black/10 text-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-start items-center text-center px-4 pt-24 sm:pt-36">
+          <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg backdrop-blur-sm bg-black/10 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
               Diseño & Mobiliario <span className="text-secondary">Exclusivo</span> para Espacios Únicos
             </h1>
@@ -93,7 +93,7 @@ export default function HomePage() {
         </div>
 
         {/* Flecha ajustada - OPTIMIZADA para ser visible sin scroll */}
-        <div className="absolute bottom-20 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
+        <div className="absolute bottom-24 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
           <svg
             className="w-10 h-10 text-white animate-bounce"
             fill="none"

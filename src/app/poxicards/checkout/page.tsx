@@ -79,6 +79,7 @@ export default function CheckoutWizardPage() {
   const { session } = useSupabase();
   const userId = session?.user?.id || null;
   const correo = session?.user?.email;
+  const nombreUsuario = session?.user?.user_metadata?.name;
   const [createdOrderId, setCreatedOrderId] = useState<number | null>(null);
 
   // Al montar o cambiar el cart, fetch combos ocupados
@@ -287,6 +288,10 @@ export default function CheckoutWizardPage() {
         // Si está "paid", ponle la fecha de compra. Si "pending", déjalo en null (opcional)
         const purchaseDateValue = isLockedValue ? new Date() : null;
 
+        console.log("ítem a insertar: ", item);
+        console.log("chosen: ", chosen);
+        console.log("userId: ", userId);
+
         const { error: ticketError } = await supabase.from("user_tickets").insert({
           ticket_type_id: item.id,
           user_id: userId,
@@ -294,7 +299,9 @@ export default function CheckoutWizardPage() {
           serie: chosen.serie,
           is_locked: isLockedValue,
           purchase_date: purchaseDateValue,
-          order_id: dataUpdate.id // <-- asignamos el ID de la orden
+          order_id: dataUpdate.id, // <-- asignamos el ID de la orden
+          date: item.date,
+          time: item.time
         });
 
         if (ticketError) {
@@ -338,7 +345,7 @@ export default function CheckoutWizardPage() {
 
       if (correo) {
       const cartCopy = [...cart];
-        await sendCartEmail(cartCopy, correo);
+        await sendCartEmail(cartCopy, correo, nombreUsuario);
       }
       clearCart();
     } else if (paymentStatus === "paid") {
@@ -348,7 +355,7 @@ export default function CheckoutWizardPage() {
 
       if (correo) {
         const cartCopy = [...cart];
-        await sendCartEmail(cartCopy, correo);
+        await sendCartEmail(cartCopy, correo, nombreUsuario);
       }
       clearCart();
       //router.push(`/personalizar-tickets?order=${createdOrder.id}`);

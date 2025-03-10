@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { useCart } from "@/components/context/CartContext";
 import Link from "next/link";
 import { Database } from '@/types-db';
+import { Toaster, toast } from 'sonner';
 
 type TypeTicket = Database['ticket_types'];
 type UsertTicket = Database['user_tickets'];
@@ -64,19 +65,26 @@ export default function TicketTypesPageClient({
     };
     counterId += 1;
     addToCart(newUserTicket);
+
+    //mensaje muy sitil de confirmación
+    toast.success('Poxicard agregado al carrito', {
+      duration: 1500,
+      position: 'top-center',
+    });
   }
 
 
   return (
     <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-0 mt-0">
       {/* Encabezado y carrito */}
+      <Toaster richColors />
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            PoxCards Disponibles
+            PoxiCards Disponibles
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Compra tu poxcard, personalizalo y participa por grandes premios.
+            Compra tu poxicard, personalizalo y participa por grandes premios.
           </p>
         </div>
 

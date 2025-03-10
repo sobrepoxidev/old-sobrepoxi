@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 import TicketTypesPageClient from '@/components/user/TicketTypesPageClient'; // <-- Importamos el comp. cliente
 
+
 export default async function TicketTypesPage() {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });

@@ -46,16 +46,16 @@ export default function LoginPage() {
   if (!mounted) return null // Evita el error de hidratación
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center dark:text-black">Iniciar Sesión</h1>
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-800">
+      <div className="w-full max-w-md p-6 rounded shadow-md dark:bg-gray-700">
+        <h1 className="text-2xl font-bold mb-4 text-center dark:bg-gray-700 dark:text-white">Iniciar Sesión</h1>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block mb-1 font-medium  dark:text-black">Email</label>
+            <label className="block mb-1 font-medium dark:bg-gray-700 dark:text-white">Email</label>
             <input
               type="email"
-              className="w-full border border-gray-300 rounded px-3 py-2 dark:bg-white dark:text-black"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pl-10 focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="tu-correo@ejemplo.com"
@@ -63,10 +63,10 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label className="block mb-1 font-medium  dark:bg-white dark:text-black ">Contraseña</label>
+            <label className="block mb-1 font-medium  bg-white dark:bg-gray-700 dark:text-white">Contraseña</label>
             <input
               type="password"
-              className="w-full border border-gray-300 rounded px-3 py-2 dark:bg-white dark:text-black"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pl-10 focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

@@ -40,7 +40,7 @@ export default function RegisterPage() {
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { name, phone, birthdate } },
+        options: { data: { name, phone} },
       })
       if (error) {
         setErrorMsg(error.message)
@@ -122,7 +122,7 @@ export default function RegisterPage() {
               Teléfono
             </label>
             <div className="relative">
-              <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
+              <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 rotate-90 text-gray-400 dark:text-gray-500" />
               <input
                 type="tel"
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pl-10 focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
@@ -134,22 +134,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Fecha de Nacimiento */}
-          <div>
-            <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">
-              Fecha de Nacimiento
-            </label>
-            <div className="relative">
-              <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
-              <input
-                type="date"
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pl-10 focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
-                value={birthdate}
-                onChange={(e) => setBirthdate(e.target.value)}
-                required
-              />
-            </div>
-          </div>
+          
 
           {/* Contraseña */}
           <div>
