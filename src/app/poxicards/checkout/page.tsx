@@ -366,7 +366,7 @@ export default function CheckoutWizardPage() {
   // -------------- Render principal --------------
   if (cart.length === 0 && paymentStatus === null) {
     return (
-      <main className="max-w-3xl mx-auto p-6">
+      <main className="max-w-3xl mx-auto px-6 py-14">
         <button onClick={() => router.back()} className="bg-gray-200 p-2 rounded-md dark:bg-gray-800">
           &larr; Regresar
         </button>
@@ -376,7 +376,7 @@ export default function CheckoutWizardPage() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto p-6">
+    <main className="max-w-3xl mx-auto px-6 py-14">
       {/* Encabezado */}
       <header className="flex items-center gap-4 mb-6">
         {currentStep > 1 && currentStep <= 3 && (
@@ -495,7 +495,7 @@ function Step1_SelectNumbersSeries({
                     key={num}
                     onClick={() => !isDisabled && onSelectNumber(ticket.local_id, num, ticket)}
                     disabled={isDisabled}
-                    className={`p-2 text-sm font-bold rounded-md
+                    className={`text-base font-bold rounded-md 
                       ${isDisabled ? "bg-gray-300 text-gray-500 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
                         : isChosen ? "bg-indigo-500 text-white"
                           : "bg-white border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -869,7 +869,7 @@ function Step4({ paymentMethod }: Step4Props) {
   };
 
   return (
-    <section className="mt-6 p-6 bg-green-100 border border-green-300 rounded-lg shadow-md py-14">
+    <section className="mt-6 p-6 bg-green-100 border border-green-300 rounded-lg shadow-md ">
       <p className="text-lg text-gray-700 mb-6">
         Tu compra se ha procesado correctamente. Al descargar tus PoxiCards se iniciará automáticamente un proceso de personalización para que puedas comenzar a disfrutar de ellas de inmediato.
       </p>
