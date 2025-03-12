@@ -66,7 +66,7 @@ const Draggable = ({
     onDrop?.(e.clientX, e.clientY);
     e.currentTarget.releasePointerCapture(e.pointerId);
   };
- 
+
 
   return (
     <div
@@ -364,124 +364,146 @@ const EditableCard = ({ card }: EditableCardProps) => {
         console.error("Error al generar la imagen:", error);
       }
     }
-  }, [card.premio]);  const { session } = useSupabase();
+  }, [card.premio]); const { session } = useSupabase();
   const nombreUsuario = session?.user?.user_metadata?.name;
 
+
   // ---------------------- CardPreview ----------------------
-  const CardPreview = () => (
-    <div ref={downloadRef} className="relative w-full max-w-xs mx-auto">
-      <div className="relative">
-        {isDragging && (
-          <div
-            ref={trashRef}
-            className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20 bg-red-400 p-2 rounded-full shadow-md"
-            style={{ width: "30px", height: "30px" }}
-          >
-            <Image src="/stickers/trash.svg" alt="Basurero" width={25} height={25} />
-          </div>
-        )}
+  const CardPreview = () => {
+    // 1. Combinas la fecha y hora en un string ISO básico
+    const combinedDateTime = `${card.date}T${card.time}:00`;
+    // 2. Creas el objeto Date
+    const dateObj = new Date(combinedDateTime);
 
-        <div className="relative overflow-hidden rounded-lg shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-transform duration-300 hover:shadow-xl">
-          <div className="absolute top-2 left-2 z-10 bg-indigo-600 bg-opacity-90 text-white px-3 py-1 rounded-md text-xs font-semibold backdrop-blur-md">
-            Sobrepoxi
-          </div>
-          <div className="relative w-full h-40 rounded-md overflow-hidden">
-            {card.image_url ? (
-              <Image src={card.image_url} alt={card.premio} fill style={{ objectFit: "cover" }} />
-            ) : (
-              <div className="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-                📷 Sin imagen
-              </div>
-            )}
+    // 3. Formateas la fecha (ej. "01/03/2025")
+    const fechaFormateada = dateObj.toLocaleDateString('es-CR', {
+      timeZone: 'America/Costa_Rica',
+    });
 
-            {/* Stickers */}
-            {addedStickers.map((item) => (
-              <Draggable
-                key={item.uid}
-                initialPosition={item.position}
-                onPositionChange={(pos) => updateStickerPosition(item.uid, pos)}
-                onDragStart={() => setIsDragging(true)}
-                onDragEnd={() => setIsDragging(false)}
-                onDrop={handleStickerDrop(item.uid)}
-              >
-                <Image
-                  src={item.sticker.imageUrl}
-                  alt={item.sticker.name}
-                  width={50}
-                  height={50}
-                />
-              </Draggable>
-            ))}
+    // 4. Formateas la hora en 12h con AM/PM (ej. "10:00 a. m.")
+    const horaFormateada = dateObj.toLocaleTimeString('es-CR', {
+      timeZone: 'America/Costa_Rica',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // fuerza AM/PM
+    });
+    return (
+      <div ref={downloadRef} className="relative w-full max-w-xs mx-auto">
+        <div className="relative">
+          {isDragging && (
+            <div
+              ref={trashRef}
+              className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20 bg-red-400 p-2 rounded-full shadow-md"
+              style={{ width: "30px", height: "30px" }}
+            >
+              <Image src="/stickers/trash.svg" alt="Basurero" width={25} height={25} />
+            </div>
+          )}
 
-            {/* Textos (múltiples) */}
-            {addedTexts.map((txt) => (
-              <Draggable
-                key={txt.uid}
-                initialPosition={txt.position}
-                onPositionChange={(pos) => updateTextPosition(txt.uid, pos)}
-                onDragStart={() => setIsDragging(true)}
-                onDragEnd={() => setIsDragging(false)}
-                onDrop={handleTextDrop(txt.uid)}
-              >
-                <div
-                  style={{
-                    fontFamily: "'Impact', 'Arial Black', sans-serif",
-                    fontSize: "22px",
-                    fontWeight: "bold",
-                    color: "#fff",
-                    WebkitTextStroke: "2px #000",
-                    textShadow: "3px 3px 0 #000",
-                  }}
-                >
-                  {txt.text}
+          <div className="relative overflow-hidden rounded-lg shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 transition-transform duration-300 hover:shadow-xl">
+            <div className="absolute top-2 left-2 z-10 bg-indigo-600 bg-opacity-90 text-white px-3 py-1 rounded-md text-xs font-semibold backdrop-blur-md">
+              Sobrepoxi
+            </div>
+            <div className="relative w-full h-40 rounded-md overflow-hidden">
+              {card.image_url ? (
+                <Image src={card.image_url} alt={card.premio} fill style={{ objectFit: "cover" }} />
+              ) : (
+                <div className="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+                  📷 Sin imagen
                 </div>
-              </Draggable>
-            ))}
-          </div>
+              )}
 
-          {/* Info de la Tarjeta */}
-          <div className="mt-4 space-y-2">
-            <h2 className="text-lg md:text-xl font-bold text-indigo-600 dark:text-indigo-400">
-              {card.premio}
-            </h2>
-            <h3 className="text-sm md:text-base font-bold text-indigo-400 dark:text-indigo-200">{ nombreUsuario }</h3>
-            <div className="grid grid-cols-2 gap-1 text-sm">
-              <div>
-                <span className="font-semibold">Número: </span>
-                <span className="text-indigo-600 dark:text-indigo-400">{card.number}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Serie: </span>
-                <span className="text-indigo-600 dark:text-indigo-400">
-                  {card.serie || "000"}
-                </span>
-              </div>
+              {/* Stickers */}
+              {addedStickers.map((item) => (
+                <Draggable
+                  key={item.uid}
+                  initialPosition={item.position}
+                  onPositionChange={(pos) => updateStickerPosition(item.uid, pos)}
+                  onDragStart={() => setIsDragging(true)}
+                  onDragEnd={() => setIsDragging(false)}
+                  onDrop={handleStickerDrop(item.uid)}
+                >
+                  <Image
+                    src={item.sticker.imageUrl}
+                    alt={item.sticker.name}
+                    width={50}
+                    height={50}
+                  />
+                </Draggable>
+              ))}
+
+              {/* Textos (múltiples) */}
+              {addedTexts.map((txt) => (
+                <Draggable
+                  key={txt.uid}
+                  initialPosition={txt.position}
+                  onPositionChange={(pos) => updateTextPosition(txt.uid, pos)}
+                  onDragStart={() => setIsDragging(true)}
+                  onDragEnd={() => setIsDragging(false)}
+                  onDrop={handleTextDrop(txt.uid)}
+                >
+                  <div
+                    style={{
+                      fontFamily: "'Impact', 'Arial Black', sans-serif",
+                      fontSize: "22px",
+                      fontWeight: "bold",
+                      color: "#fff",
+                      WebkitTextStroke: "2px #000",
+                      textShadow: "3px 3px 0 #000",
+                    }}
+                  >
+                    {txt.text}
+                  </div>
+                </Draggable>
+              ))}
             </div>
-            <div className="grid grid-cols-2 gap-1 text-sm">
-              <div>
-                <span className="font-semibold">Fecha: </span>
-                <span>{card.date}</span>
+
+            {/* Info de la Tarjeta */}
+            <div className="mt-4 space-y-2">
+              <h2 className="text-lg md:text-xl font-bold text-indigo-600 dark:text-indigo-400">
+                {card.premio}
+              </h2>
+              <h3 className="text-sm md:text-base font-bold text-indigo-400 dark:text-indigo-200">{nombreUsuario}</h3>
+              <div className="grid grid-cols-2 gap-1 text-sm">
+                <div>
+                  <span className="font-semibold">Número: </span>
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    {String(card.number).padStart(2, '0')}
+                  </span>
+                </div>
+                <div>
+                  <span className="font-semibold">Serie: </span>
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    {String(card.serie).padStart(3, '0') || "000"}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="font-semibold">Hora: </span>
-                <span>{card.time.slice(0, 5)}</span>
+              <div className="grid grid-cols-2 gap-1 text-sm">
+                <div>
+                  <span className="font-semibold">Fecha: </span>
+                  <span>{fechaFormateada}</span>
+                </div>
+                <div>
+                  <span className="font-semibold">Hora: </span>
+                  <span>{horaFormateada}</span>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-row justify-between mt-3">
-              <div className="flex-1 flex justify-start items-start">
-                <p className="text-base md:text-lg font-semibold text-green-600 dark:text-green-400">
-                  ₡{card.costo}
-                </p>
-              </div>
-              <div className="flex-1 flex justify-center items-center">
-                <QRCodeSVG value="https://example.com/ticket" size={40} />
+              <div className="flex flex-row justify-between mt-3">
+                <div className="flex-1 flex justify-start items-start">
+                  <p className="text-base md:text-lg font-semibold text-green-600 dark:text-green-400">
+                    ₡{card.costo}
+                  </p>
+                </div>
+                <div className="flex-1 flex justify-center items-center">
+                  <QRCodeSVG value="https://example.com/ticket" size={40} />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    )
+  };
 
   // ------------------- Render principal -------------------
   return (
@@ -490,17 +512,15 @@ const EditableCard = ({ card }: EditableCardProps) => {
       <div className="flex md:hidden mb-4 bg-gray-100 dark:bg-gray-900 rounded-lg p-1">
         <button
           onClick={() => setActiveTab("preview")}
-          className={`flex-1 py-2 text-center rounded-md transition ${
-            activeTab === "preview" ? "bg-blue-600 text-white font-medium" : "text-gray-700"
-          }`}
+          className={`flex-1 py-2 text-center rounded-md transition ${activeTab === "preview" ? "bg-blue-600 text-white font-medium" : "text-gray-700"
+            }`}
         >
           Ver Tarjeta
         </button>
         <button
           onClick={() => setActiveTab("customize")}
-          className={`flex-1 py-2 text-center rounded-md transition ${
-            activeTab === "customize" ? "bg-blue-600 text-white font-medium" : "text-gray-700"
-          }`}
+          className={`flex-1 py-2 text-center rounded-md transition ${activeTab === "customize" ? "bg-blue-600 text-white font-medium" : "text-gray-700"
+            }`}
         >
           Personalizar
         </button>
@@ -519,18 +539,16 @@ const EditableCard = ({ card }: EditableCardProps) => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Vista previa */}
         <div
-          className={`lg:w-1/2 flex flex-col items-center ${
-            activeTab === "preview" || window.innerWidth >= 768 ? "block" : "hidden"
-          }`}
+          className={`lg:w-1/2 flex flex-col items-center ${activeTab === "preview" || window.innerWidth >= 768 ? "block" : "hidden"
+            }`}
         >
           <CardPreview />
         </div>
 
         {/* Personalización */}
         <div
-          className={`lg:w-1/2 ${
-            activeTab === "customize" || window.innerWidth >= 768 ? "block" : "hidden"
-          }`}
+          className={`lg:w-1/2 ${activeTab === "customize" || window.innerWidth >= 768 ? "block" : "hidden"
+            }`}
         >
           <CustomizationOptions
             stickers={myStickers}
@@ -538,7 +556,7 @@ const EditableCard = ({ card }: EditableCardProps) => {
             customText={customText}
             handleTextChange={handleTextChange}
             textInputRef={textInputRef}
-            handleAddText={addText}     
+            handleAddText={addText}
             handleDownload={handleDownload}
             handleUploadSticker={handleUploadSticker}
           />

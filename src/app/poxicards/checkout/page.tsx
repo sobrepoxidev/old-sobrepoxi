@@ -376,7 +376,7 @@ export default function CheckoutWizardPage() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-14">
+    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-14">
       {/* Encabezado */}
       <header className="flex items-center gap-4 mb-6">
         {currentStep > 1 && currentStep <= 3 && (
@@ -477,7 +477,7 @@ function Step1_SelectNumbersSeries({
         };
 
         return (
-          <div key={ticket.local_id} className="mb-6 p-4 border rounded-md">
+          <div key={ticket.local_id} className="mb-6 border rounded-md">
             <h3 className="font-bold mb-2">
               {ticket.premio} ({ticket.date} - {ticket.time?.slice(0, 5)})
             </h3>
