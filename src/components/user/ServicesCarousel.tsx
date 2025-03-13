@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useTranslations } from "next-intl";
 
 interface Service {
   id: number;
@@ -11,11 +12,15 @@ interface Service {
 }
 
 interface Props {
-  services: Service[];
+  
 }
 
-export default function ServicesCarousel({ services }: Props) {
+export default function ServicesCarousel({  }: Props) {
   const [activeService, setActiveService] = useState(0);
+  const t = useTranslations('common');
+
+  const services = JSON.parse(t.raw("servicesJson")) as Service[];
+
 
   return (
     <>

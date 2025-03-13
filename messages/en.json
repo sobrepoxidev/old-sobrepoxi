@@ -1,0 +1,104 @@
+{
+  "common": {
+    "heroTitle": "Exclusive Design & Furniture for Unique Spaces",
+    "heroSubtitle": "We create personalized solutions to transform every corner of your home or business with elegance and functionality.",
+    "heroButton1": "Learn More About Us",
+    "heroButton2": "Free Consultation",
+    "servicesTitle": "Our Services",
+    "servicesSubtitle": "Tailor-made solutions for each space with the distinctive Sobrepoxi seal",
+    "projectsTitle": "Recent Projects",
+    "projectsSubtitle": "Explore our latest work and get inspired",
+    "projectsButton": "View project",
+    "ctaTitle": "Ready to transform your spaces?",
+    "ctaDescription": "Contact us to start your project with the best experts in design and furniture. First consultation absolutely free.",
+    "ctaButton1": "Contact Us",
+    "ctaButton2": "See gallery",
+    "raffleTitle": "🎟 Join our exclusive furniture giveaway!",
+    "raffleText": "For just ₡1000, get a personalized ticket and enter our monthly drawing. You can win exclusive furniture and design consultations.",
+    "raffleButton1": "Buy Ticket",
+    "raffleButton2": "View terms and conditions",
+    "ticketNumber": "Ticket #4269",
+    "ticketMonth": "February 2025 Giveaway",
+    "ticketDescription": "Participate and win exclusive furniture!",
+    "ticketPrize": "Prize: *******",
+    "testimonialsTitle": "What our customers say",
+    "testimonialQuote": "The work Sobrepoxi did in my home exceeded all my expectations. The design, quality, and attention to detail were exceptional.",
+    "testimonialUser1": "Alejandra Carballo",
+    "testimonialUser2": "Jesús Brenes",
+    "testimonialUser3": "Glenn Gerr",
+    "servicesJson": "[{\"id\":1,\"title\":\"Custom Furniture\",\"description\":\"We design...\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Interior Design\",\"description\":\"We create...\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restoration and Renovation\",\"description\":\"We bring new life...\",\"image\":\"/home_4.webp\"}]"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, es {🇪🇸 Español} en {🇺🇸 English} other {Unknown}}"
+  },
+  "header": {
+    "brand": "Sobrepoxi",
+    "navLinks": {
+      "home": "Home",
+      "about": "About Us",
+      "gallery": "Gallery",
+      "poxicards": "PoxiCards",
+      "contact": "Contact Us"
+    },
+    "guestLinks": {
+      "login": "Log In",
+      "register": "Register"
+    },
+    "logout": "Log Out",
+    "toggleMenu": "Toggle Menu"
+  },
+  "footer": {
+    "copyright": "© {year} - <bold>Sobrepoxi</bold>",
+    "allRightsReserved": "All rights reserved.",
+    "termsAndConditions": "Terms & Conditions",
+    "followUs": "Follow us on",
+    "socialLinks": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "floatingTicket": {
+    "description": "🎫 Buy PoxiCards and win premium items!",
+    "buyButton": "Buy PoxiCards",
+    "close": "Close"
+  },
+  "aboutPage": {
+    "heroTitle": "About Us",
+    "heroSubtitle": "We create furniture and spaces that tell stories.",
+    "historyTitle": "Our History",
+    "historyParagraph1": "Sobrepoxi was born from a small workshop with a huge dream: to show that design and functionality can merge to create unique pieces. From the very first sketch to the final finishing touch, every detail embodies our passion and dedication. Over the years, we've evolved in techniques, materials, and styles, but always keep one key ingredient: a <strong>relentless commitment to quality</strong>.",
+    "historyParagraph2": "Today, our multidisciplinary team of designers, artisans, and visionaries continues to push boundaries. We believe every piece of furniture is a canvas where we blend trends and an innovative spirit, without losing that personal touch that turns an object into a companion for everyday stories.",
+    "missionTitle": "Mission",
+    "missionText": "To design and craft unique pieces that transform spaces into vibrant places, where aesthetics and practicality come together to enhance everyone's experience.",
+    "visionTitle": "Vision",
+    "visionText": "To become a benchmark of innovation and excellence in the world of furniture, promoting solutions that embrace the future without sacrificing the warmth of handmade craftsmanship.",
+    "valuesTitle": "Values",
+    "valuesList": {
+      "creativity": "<strong>Creativity:</strong> we constantly explore new ideas and trends.",
+      "quality": "<strong>Quality:</strong> we're stubborn about perfection.",
+      "sustainability": "<strong>Sustainability:</strong> we select eco-friendly materials and processes.",
+      "passion": "<strong>Passion:</strong> we pour our heart into every project, big or small."
+    },
+    "philosophyTitle": "Our Philosophy",
+    "philosophyParagraph1": "At Sobrepoxi, we're driven by the idea that every space has its own soul. Our job is to listen to that essence and shape it through original solutions that not only impress at first glance, but also retain their charm as time goes by.",
+    "philosophyParagraph2": "We believe in a close relationship with our customers: <em>we create partnerships, not just furniture.</em> We love exploring trends and combining them with high-quality materials, always in tune with sustainability. After all, what good is beautiful furniture if the planet pays the price?",
+    "readyTitle": "Ready to learn more?",
+    "readyParagraph": "If you'd like to see how we turn our ideas into tangible realities, be sure to browse our projects and gallery sections. We promise you'll find inspiration and plenty of motivation to refresh your space!"
+  },
+  "ticketsPage": {
+    "mainTitle": "Get your PoxiCard and win <span>amazing prizes</span>! 🎁🔥",
+    "mainSubtitle": "Purchase your <strong>PoxiCard</strong> and get a free entry into our giveaway. You could win <highlight>incredible products</highlight>!",
+    "btnBuy": "Buy PoxiCard",
+    "step1Title": "1. Purchase Your PoxiCards 🛒",
+    "step1Desc": "Get a <strong>digital PoxiCard</strong> for just ₡1000.",
+    "step2Title": "2. Receive Your Number 🎟️",
+    "step2Desc": "After payment, you'll be able to choose <strong>a number</strong> to enter our giveaway.",
+    "step3Title": "3. Personalize and Download 🎨",
+    "step3Desc": "Customize your PoxiCard with your chosen number and download it to share on social media.",
+    "step4Title": "4. Win Prizes! 🎁",
+    "step4Desc": "If your number matches the lottery draw, you win the prize!",
+    "legalWarning": "Buying a digital PoxiCard does not imply purchasing an entry to the giveaway. By acquiring a PoxiCard, you automatically receive a free courtesy entry."
+  }
+}

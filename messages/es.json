@@ -1,0 +1,116 @@
+{
+  "common": {
+    "heroTitle": "Diseño & Mobiliario Exclusivo para Espacios Únicos",
+    "heroSubtitle": "Creamos soluciones personalizadas para transformar cada rincón de tu hogar o empresa con elegancia y funcionalidad.",
+    "heroButton1": "Conócenos Más",
+    "heroButton2": "Consulta Gratis",
+
+    "servicesTitle": "Nuestros Servicios",
+    "servicesSubtitle": "Soluciones a medida para cada espacio con el sello distintivo de Sobrepoxi",
+
+    "projectsTitle": "Proyectos Recientes",
+    "projectsSubtitle": "Explorá nuestros trabajos más recientes y dejate inspirar",
+    "projectsButton": "Ver proyecto",
+
+    "ctaTitle": "¿Listo para transformar tus espacios?",
+    "ctaDescription": "Contáctanos para iniciar tu proyecto con los mejores expertos en diseño y mobiliario. Primera consulta completamente gratis.",
+    "ctaButton1": "Contáctanos",
+    "ctaButton2": "Ver galería",
+
+    "raffleTitle": "🎟 ¡Participá en nuestro sorteo exclusivo de mobiliario!",
+    "raffleText": "Solo por ₡1000 obtenés un boleto personalizado y participás en nuestro sorteo mensual. Podés ganar muebles exclusivos y asesorías de diseño.",
+    "raffleButton1": "Comprar Ticket",
+    "raffleButton2": "Ver términos y condiciones",
+
+    "ticketNumber": "Ticket #4269",
+    "ticketMonth": "Sorteo Febrero 2025",
+    "ticketDescription": "¡Participá y ganá mobiliario exclusivo!",
+    "ticketPrize": "Premio: *******",
+
+    "testimonialsTitle": "Lo que dicen nuestros clientes",
+    "testimonialQuote": "El trabajo que realizó Sobrepoxi en mi hogar superó todas mis expectativas. El diseño, la calidad y la atención al detalle fueron excepcionales.",
+    "testimonialUser1": "Alejandra Carballo",
+    "testimonialUser2": "Jesús Brenes",
+    "testimonialUser3": "Glenn Gerr",
+
+    "servicesJson": "[{\"id\":1,\"title\":\"Muebles Personalizados\",\"description\":\"Diseñamos...\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Diseño de Interiores\",\"description\":\"Creamos...\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restauración y Remodelación\",\"description\":\"Damos nueva vida...\",\"image\":\"/home_4.webp\"}]"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Cambiar idioma",
+    "locale": "{locale, select, es {🇪🇸 Español} en {🇺🇸 Inglés} other {Desconocido}}"
+
+  },
+
+  "header": {
+    "brand": "Sobrepoxi",
+    "navLinks": {
+      "home": "Inicio",
+      "about": "Sobre nosotros",
+      "gallery": "Galería",
+      "poxicards": "PoxiCards",
+      "contact": "Contáctanos"
+    },
+    "guestLinks": {
+      "login": "Iniciar Sesión",
+      "register": "Registrarse"
+    },
+    "logout": "Cerrar Sesión",
+    "toggleMenu": "Abrir/Cerrar Menú"
+  },
+  "footer": {
+    "copyright":
+      "© {year} - <bold>Sobrepoxi</bold>",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "termsAndConditions": "Términos y Condiciones",
+    "followUs": "Síguenos en",
+    "socialLinks": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "floatingTicket": {
+    "description": "🎫 ¡Compra PoxiCards y gana artículos premium!",
+    "buyButton": "Comprar PoxiCards",
+    "close": "Cerrar"
+  },
+  "aboutPage": {
+    "heroTitle": "Sobre Nosotros",
+    "heroSubtitle": "Creamos muebles y espacios que cuentan historias.",
+    "historyTitle": "Nuestra Historia",
+    "historyParagraph1": "Sobrepoxi nació de un taller pequeño con un sueño enorme: demostrar que el diseño y la funcionalidad pueden fusionarse para crear piezas únicas. Desde el primer boceto hasta la última pincelada de acabado, cada detalle representa nuestra pasión y dedicación. Con el paso de los años, hemos evolucionado en técnicas, materiales y estilos, pero manteniendo siempre un ingrediente infaltable: la <strong>obsesión por la calidad</strong>.",
+    "historyParagraph2": "Hoy, nuestro equipo multidisciplinario de diseñadores, artesanos y visionarios sigue ampliando fronteras. Creemos que cada mueble es un lienzo donde plasmamos tendencias y espíritu innovador, sin perder ese toque personal que convierte un objeto en un compañero de historias cotidianas.",
+    "missionTitle": "Misión",
+    "missionText": "Diseñar y elaborar piezas únicas que transformen espacios en lugares llenos de vida, donde la estética y la practicidad se unan para mejorar la experiencia de cada persona que las habita.",
+    "visionTitle": "Visión",
+    "visionText": "Convertirnos en referente de innovación y excelencia en el mundo del mobiliario, promoviendo soluciones que dialoguen con el futuro, sin sacrificar la calidez de lo hecho a mano.",
+    "valuesTitle": "Valores",
+    "valuesList": {
+      "creativity": "<strong>Creatividad:</strong> exploramos nuevas ideas y tendencias constantemente.",
+      "quality": "<strong>Calidad:</strong> nos gusta ser tercos con la perfección.",
+      "sustainability": "<strong>Sostenibilidad:</strong> seleccionamos materiales y procesos eco-amigables.",
+      "passion": "<strong>Pasión:</strong> ponemos el corazón en cada proyecto, grande o pequeño."
+    },
+    "philosophyTitle": "Nuestra Filosofía",
+    "philosophyParagraph1": "En Sobrepoxi nos mueve la idea de que cada espacio tiene un alma propia. Nuestra labor consiste en escuchar esa esencia y darle forma a través de soluciones originales que no solo impresionen a primera vista, sino que conserven su encanto con el paso del tiempo.",
+    "philosophyParagraph2": "Creemos en una relación cercana con nuestros clientes: <em>más que muebles, creamos complicidades.</em> Nos encanta explorar tendencias y fusionarlas con materiales de alta calidad, siempre en sintonía con la sostenibilidad. A fin de cuentas, ¿de qué sirve un mueble hermoso si el planeta paga la factura?",
+    "readyTitle": "¿Listo para conocer más?",
+    "readyParagraph": "Si querés ver de cerca cómo convertimos nuestras ideas en realidades tangibles, no dudes en navegar por nuestras secciones de proyectos y galería. ¡Te prometemos inspiración y muchas ganas de renovar tu espacio!"
+  },
+  "ticketsPage": {
+    "mainTitle": "¡Adquiere tu PoxiCard, participa por <span>premios increíbles</span>! 🎁🔥",
+    "mainSubtitle": "Compra tu <strong>PoxiCard</strong> y participa de cortesía en un sorteo. ¡Podrías ganar <highlight>productos increíbles</highlight>!",
+    "btnBuy": "Comprar PoxiCard",
+    "step1Title": "1. Compra tus PoxiCards 🛒",
+    "step1Desc": "Adquiere un <strong>PoxiCard digital</strong> por solo ₡1000.",
+    "step2Title": "2. Recibe tu Número 🎟️",
+    "step2Desc": "Tras realizar tu pago, podrás escoger <strong>un número</strong> para participar en un sorteo.",
+    "step3Title": "3. Personaliza y descarga tu PoxiCard 🎨",
+    "step3Desc": "Puedes personalizar tu PoxiCard con tu número y descargarla para compartir en redes sociales.",
+    "step4Title": "4. ¡Gana Premios! 🎁",
+    "step4Desc": "Si tu número coincide con el de la lotería, ¡te llevas el premio!",
+    "legalWarning": "La compra del PoxiCard digital no implica la compra de una participación en el sorteo. Al adquirir el PoxiCard, recibes automáticamente una entrada gratuita como cortesía."
+  }
+
+}
