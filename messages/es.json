@@ -33,7 +33,7 @@
     "testimonialUser2": "Jesús Brenes",
     "testimonialUser3": "Glenn Gerr",
 
-    "servicesJson": "[{\"id\":1,\"title\":\"Muebles Personalizados\",\"description\":\"Diseñamos...\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Diseño de Interiores\",\"description\":\"Creamos...\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restauración y Remodelación\",\"description\":\"Damos nueva vida...\",\"image\":\"/home_4.webp\"}]"
+    "servicesJson": "[{\"id\":1,\"title\":\"Muebles Personalizados\",\"description\":\"Diseñamos y elaboramos piezas únicas que se ajustan a tu estilo de vida, fusionando innovación y calidad.\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Diseño Ambiental\",\"description\":\"Creamos espacios en armonía con la naturaleza, llevando sostenibilidad y elegancia a cada rincón.\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restauración y Remodelación\",\"description\":\"Damos nueva vida a tus muebles y ambientes, combinando lo mejor de lo clásico con lo contemporáneo.\",\"image\":\"/home_4.webp\"}]"
   },
 
   "LocaleSwitcher": {

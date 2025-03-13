@@ -18,38 +18,43 @@ export default function ServicesCarousel() {
 
   const services = JSON.parse(t.raw("servicesJson")) as Service[];
 
+  // Controles de navegación
+  const nextService = () => {
+    setActiveService((prev) => (prev === services.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevService = () => {
+    setActiveService((prev) => (prev === 0 ? services.length - 1 : prev - 1));
+  };
 
   return (
     <>
       {/* Vista Desktop y Tablet */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
         {services.map((service, index) => (
           <div
             key={service.id}
-            className="card text-center group hover:-translate-y-2 transition-all duration-300"
+            className="bg-card-secondary rounded-lg overflow-hidden shadow-md group hover:shadow-lg transition-all duration-300"
             onMouseEnter={() => setActiveService(index)}
           >
-            <div className="overflow-hidden rounded-lg mb-6 relative">
+            <div className="overflow-hidden h-56 relative">
               <Image
                 src={service.image}
                 alt={service.title}
                 width={400}
                 height={300}
-                className="rounded-lg transform transition-transform duration-500 group-hover:scale-110"
-                
+                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
               />
-              {/* <div className="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                <span className="btn-secondary px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Ver detalles
-                </span>
-              </div> */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
-              {service.title}
-            </h3>
-            <p className="text-text-secondary">
-              {service.description}
-            </p>
+            <div className="p-5">
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-text-secondary text-sm">
+                {service.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -62,34 +67,57 @@ export default function ServicesCarousel() {
             style={{ transform: `translateX(-${activeService * 100}%)` }}
           >
             {services.map((service) => (
-              <div key={service.id} className="w-full flex-shrink-0 px-4">
-                <div className="card text-center">
-                  <div className="overflow-hidden rounded-lg mb-6">
+              <div key={service.id} className="w-full flex-shrink-0 px-1">
+                <div className="bg-card-secondary rounded-lg overflow-hidden shadow-md">
+                  <div className="overflow-hidden h-48 relative">
                     <Image
                       src={service.image}
                       alt={service.title}
                       width={400}
                       height={300}
-                      className="rounded-lg"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-text-secondary">
-                    {service.description}
-                  </p>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-text-secondary text-sm">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Controles de Carrousel */}
-          <div className="flex justify-center mt-6 gap-2">
+          {/* Controles de navegación táctiles */}
+          <button 
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-r-lg text-white"
+            onClick={prevService}
+            aria-label="Servicio anterior"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-l-lg text-white"
+            onClick={nextService}
+            aria-label="Siguiente servicio"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Indicadores de posición */}
+          <div className="flex justify-center mt-4 gap-2">
             {services.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full ${activeService === index ? 'bg-primary' : 'bg-gray-light'}`}
+                className={`w-2 h-2 rounded-full transition-colors ${activeService === index ? 'bg-primary' : 'bg-gray-light'}`}
                 onClick={() => setActiveService(index)}
                 aria-label={`Ver servicio ${index + 1}`}
               />

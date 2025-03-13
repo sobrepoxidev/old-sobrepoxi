@@ -40,84 +40,84 @@ export default function HomePage() {
       <FloatingTicket />
 
       {/* 🌟 Hero Section - OPTIMIZADO */}
-      <section className="relative w-full h-[calc(100vh-00px)] md:h-[calc(100vh-0px)] flex flex-col justify-center items-center">
-        {/* Imagen de fondo */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/home_1_2.webp"
-            alt="Muebles exclusivos"
-            fill
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            quality={80}
-            className="transition-transform duration-[10000ms] ease-in-out scale-105 animate-subtle-zoom"
-            priority
-          />
-        </div>
+      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-x-hidden">
+  {/* Imagen de fondo */}
+  <div className="absolute inset-0 overflow-hidden">
+    <Image
+      src="/home_1_2.webp"
+      alt="Muebles exclusivos"
+      fill
+      style={{ objectFit: "cover", objectPosition: "center" }}
+      quality={80}
+      className="transition-transform duration-[10000ms] ease-in-out scale-105 animate-subtle-zoom"
+      priority
+    />
+  </div>
 
-        {/* Capa de gradiente + contenido */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-start items-center text-center px-4 pt-24 sm:pt-36">
-          <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg bg-black/10 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
-              {t("heroTitle")}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
-              {t("heroSubtitle")}
-            </p>
+  {/* Capa de gradiente + contenido */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60 flex flex-col justify-center items-center text-center px-4">
+    <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg bg-black/10 text-center">
+      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+        {t("heroTitle")}
+      </h1>
+      <p className="text-base sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
+        {t("heroSubtitle")}
+      </p>
 
-            {/* Botones */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/about-us"
-                className="btn-primary px-2 py-1 rounded-lg shadow-md hover:bg-blue-600 transition-all"
-              >
-                {t("heroButton1")}
-              </Link>
-              <Link
-                href="/contact-us"
-                className="btn-secondary px-2 py-1 rounded-lg shadow-md hover:bg-blue-600 transition-all"
-              >
-                {t("heroButton2")}
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* Botones */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <Link
+          href="/about-us"
+          className="btn-primary px-4 py-3 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto"
+        >
+          {t("heroButton1")}
+        </Link>
+        <Link
+          href="/contact-us"
+          className="btn-secondary px-4 py-3 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto"
+        >
+          {t("heroButton2")}
+        </Link>
+      </div>
+    </div>
+  </div>
 
-        {/* Flecha ajustada - OPTIMIZADA para ser visible sin scroll */}
-        <div className="absolute bottom-24 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
-          <svg
-            className="w-10 h-10 text-white animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
-      </section>
+  {/* Flecha ajustada */}
+  <div className="absolute bottom-8 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
+    <svg
+      className="w-10 h-10 text-white animate-bounce"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+      />
+    </svg>
+  </div>
+</section>
 
       {/* 💼 Servicios Destacados */}
-      <section className="py-12 md:py-20 bg-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="relative inline-block">
-                {t("servicesTitle")}
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
-              </span>
-            </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
-              {t("servicesSubtitle")}
-            </p>
-          </div>
+      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-x-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+        <span className="relative inline-block">
+          {t("servicesTitle")}
+          <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
+        </span>
+      </h2>
+      <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+        {t("servicesSubtitle")}
+      </p>
+    </div>
 
-          <ServicesCarousel/>
-        </div>
-      </section>
+    <ServicesCarousel />
+  </div>
+</section>
 
       {/* 🏆 Trabajos Destacados */}
       <section className="py-12 md:py-20 bg-background">

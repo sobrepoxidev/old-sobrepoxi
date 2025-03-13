@@ -26,7 +26,7 @@
     "testimonialUser1": "Alejandra Carballo",
     "testimonialUser2": "Jesús Brenes",
     "testimonialUser3": "Glenn Gerr",
-    "servicesJson": "[{\"id\":1,\"title\":\"Custom Furniture\",\"description\":\"We design...\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Interior Design\",\"description\":\"We create...\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restoration and Renovation\",\"description\":\"We bring new life...\",\"image\":\"/home_4.webp\"}]"
+    "servicesJson": "[{\"id\":1,\"title\":\"Custom Furniture\",\"description\":\"We design and create unique pieces that fit your lifestyle, blending innovation and quality.\",\"image\":\"/home_2.webp\"},{\"id\":2,\"title\":\"Environmental Design\",\"description\":\"We create spaces in harmony with nature, bringing sustainability and elegance to every corner.\",\"image\":\"/home_3.webp\"},{\"id\":3,\"title\":\"Restoration and Renovation\",\"description\":\"We give new life to your furniture and spaces, blending the best of classic and contemporary styles.\",\"image\":\"/home_4.webp\"}]"
   },
   "LocaleSwitcher": {
     "label": "Change language",
