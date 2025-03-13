@@ -34,7 +34,7 @@ export default function ServicesCarousel() {
         {services.map((service, index) => (
           <div
             key={service.id}
-            className="bg-card-secondary rounded-lg overflow-hidden shadow-md group hover:shadow-lg transition-all duration-300"
+            className="bg-card-secondary rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300"
             onMouseEnter={() => setActiveService(index)}
           >
             <div className="overflow-hidden h-56 relative">
@@ -47,7 +47,7 @@ export default function ServicesCarousel() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <div className="p-5">
+            <div className="p-5 pl-0">
               <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
@@ -59,69 +59,77 @@ export default function ServicesCarousel() {
         ))}
       </div>
 
-      {/* Vista Mobile con Carrousel */}
-      <div className="md:hidden">
-        <div className="relative overflow-hidden">
-          <div
-            className="flex transition-transform duration-300"
-            style={{ transform: `translateX(-${activeService * 100}%)` }}
-          >
-            {services.map((service) => (
-              <div key={service.id} className="w-full flex-shrink-0 px-1">
-                <div className="bg-card-secondary rounded-lg overflow-hidden shadow-md">
-                  <div className="overflow-hidden h-48 relative">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-text-secondary text-sm">
-                      {service.description}
-                    </p>
-                  </div>
+      {/* Vista Mobile con Carrousel Mejorado */}
+      <div className="md:hidden flex items-center justify-center h-full">
+        <div className="relative w-full h-full flex flex-col justify-center">
+          {/* Contenido del servicio activo */}
+          <div className="w-full px-4 flex-grow flex flex-col justify-center">
+            {services.map((service, index) => (
+              <div 
+                key={service.id} 
+                className={`bg-card-secondary rounded-lg overflow-hidden shadow-md transition-all duration-300 transform ${
+                  activeService === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95 absolute inset-0'
+                }`}
+                style={{
+                  zIndex: activeService === index ? 10 : 0,
+                  display: activeService === index ? 'block' : 'none'
+                }}
+              >
+                <div className="overflow-hidden h-60 relative">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold mb-3 text-primary">
+                    {service.title}
+                  </h3>
+                  <p className="text-text-secondary text-base">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Controles de navegación táctiles */}
-          <button 
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-r-lg text-white"
-            onClick={prevService}
-            aria-label="Servicio anterior"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <button 
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-l-lg text-white"
-            onClick={nextService}
-            aria-label="Siguiente servicio"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Indicadores de posición */}
-          <div className="flex justify-center mt-4 gap-2">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${activeService === index ? 'bg-primary' : 'bg-gray-light'}`}
-                onClick={() => setActiveService(index)}
-                aria-label={`Ver servicio ${index + 1}`}
-              />
-            ))}
+          {/* Controles de navegación */}
+          <div className="flex justify-between items-center px-6 py-4">
+            <button 
+              className="bg-black/30 hover:bg-black/50 p-3 rounded-full text-white shadow-md flex items-center justify-center"
+              onClick={prevService}
+              aria-label="Servicio anterior"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Indicadores de posición */}
+            <div className="flex justify-center gap-3">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors ${activeService === index ? 'bg-primary' : 'bg-gray-light'}`}
+                  onClick={() => setActiveService(index)}
+                  aria-label={`Ver servicio ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <button 
+              className="bg-black/30 hover:bg-black/50 p-3 rounded-full text-white shadow-md flex items-center justify-center"
+              onClick={nextService}
+              aria-label="Siguiente servicio"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

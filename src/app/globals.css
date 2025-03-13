@@ -38,7 +38,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Fondo y primer plano invertidos */
-    --background: #1A202C; /* Azul oscuro profundo */
+    --background: #2F3C51; /* Azul oscuro profundo */
     --foreground: #F7FAFC; /* Casi blanco para texto */
 
     /* Colores de Marca en Oscuro - Más brillantes para mejor visibilidad */
@@ -159,7 +159,6 @@ input:focus {
 /* Añadidos para navegación fluida */
 .nav-link {
   position: relative;
-  color: var(--text-primary); /* Asegura que los enlaces siempre sean visibles */
   transition: color 0.3s ease;
 }
 

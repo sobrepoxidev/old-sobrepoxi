@@ -8,9 +8,12 @@
     "servicesTitle": "Nuestros Servicios",
     "servicesSubtitle": "Soluciones a medida para cada espacio con el sello distintivo de Sobrepoxi",
 
+    "weAreHere": "Estamos aquí para hacer tus ideas realidad.",
+
     "projectsTitle": "Proyectos Recientes",
     "projectsSubtitle": "Explorá nuestros trabajos más recientes y dejate inspirar",
-    "projectsButton": "Ver proyecto",
+    "projectsButton": "Ver galería",
+    "projectsJson": "[{\"id\":1,\"title\":\"Río de Resina\",\"image\":\"/home_5.webp\",\"category\":\"Mobiliario decorativo\"},{\"id\":2,\"title\":\"Escritorio Abstracto\",\"image\":\"/home_6.webp\",\"category\":\"Mobiliario de Oficina\"},{\"id\":3,\"title\":\"Abstracción de Madera\",\"image\":\"/home_7.webp\",\"category\":\"Mobiliario comercial\"}]",
 
     "ctaTitle": "¿Listo para transformar tus espacios?",
     "ctaDescription": "Contáctanos para iniciar tu proyecto con los mejores expertos en diseño y mobiliario. Primera consulta completamente gratis.",
