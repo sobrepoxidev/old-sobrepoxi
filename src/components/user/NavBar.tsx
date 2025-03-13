@@ -77,7 +77,7 @@ export default function Navbar() {
   });
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 shadow-md bg-white dark:bg-[#2D3748] transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-colors">
       <nav className="max-w-full mx-auto px-4 py-1 flex items-center justify-between">
         {/* 🔹 Logo / Branding */}
         <div className="flex items-center">
@@ -132,22 +132,23 @@ export default function Navbar() {
             </button>
           ) : (
             <div className="flex items-center space-x-4">
-              {guestLinks.map(link => {
-                const highlightClasses = link.highlight
-                  ? "btn-primary px-5 py-2 rounded-full text-white shadow-lg shadow-primary/20"
-                  : "nav-link text-gray-dark dark:text-gray-light hover:text-secondary transition-colors";
+  {guestLinks.map(link => {
+    const highlightClasses = link.highlight
+      ? "btn-primary px-2 py-1 rounded-lg text-white shadow-md hover:bg-blue-600 transition-all"
+      : "nav-link text-gray-dark dark:text-gray-light hover:text-secondary transition-colors";
 
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className={`${highlightClasses} ${isActive(link.href)}`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-            </div>
+    return (
+      <a
+        key={link.href}
+        href={link.href}
+        className={`${highlightClasses} ${isActive(link.href)}`}
+      >
+        {link.label}
+      </a>
+    );
+  })}
+</div>
+
           )}
         </div>
 

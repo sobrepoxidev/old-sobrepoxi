@@ -44,7 +44,7 @@ export default function HomePage() {
         {/* Imagen de fondo */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/home_1.webp"
+            src="/home_1_2.webp"
             alt="Muebles exclusivos"
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
@@ -56,7 +56,7 @@ export default function HomePage() {
 
         {/* Capa de gradiente + contenido */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 flex flex-col justify-start items-center text-center px-4 pt-24 sm:pt-36">
-          <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg backdrop-blur-sm bg-black/10 text-center">
+          <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg bg-black/10 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
               {t("heroTitle")}
             </h1>
@@ -68,13 +68,13 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/about-us"
-                className="btn-primary px-5 py-2.5 text-base sm:text-lg w-full sm:w-auto"
+                className="btn-primary px-2 py-1 rounded-lg shadow-md hover:bg-blue-600 transition-all"
               >
                 {t("heroButton1")}
               </Link>
               <Link
                 href="/contact-us"
-                className="btn-secondary px-5 py-2.5 text-base sm:text-lg w-full sm:w-auto"
+                className="btn-secondary px-2 py-1 rounded-lg shadow-md hover:bg-blue-600 transition-all"
               >
                 {t("heroButton2")}
               </Link>
