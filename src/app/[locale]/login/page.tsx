@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSupabase } from '@/app/supabase-provider/provider'
 import { useEffect } from 'react'
-
+import Link from 'next/link'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -85,9 +85,9 @@ export default function LoginPage() {
 
         <p className="mt-4 text-center text-sm  dark:text-black">
           ¿No tienes cuenta?
-          <a href="/register" className="text-blue-600 ml-1 hover:underline">
+          <Link  href="/register" className="text-blue-600 ml-1 hover:underline">
             Regístrate aquí
-          </a>
+          </Link >
         </p>
       </div>
     </div>

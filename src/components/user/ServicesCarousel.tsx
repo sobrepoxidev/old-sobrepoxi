@@ -11,11 +11,8 @@ interface Service {
   image: string;
 }
 
-interface Props {
-  
-}
 
-export default function ServicesCarousel({  }: Props) {
+export default function ServicesCarousel() {
   const [activeService, setActiveService] = useState(0);
   const t = useTranslations('common');
 
