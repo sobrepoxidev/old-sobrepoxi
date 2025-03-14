@@ -5,8 +5,8 @@
 /* 🎨 Identidad Visual Sobrepoxi - CORREGIDA */
 :root {
   /* Fondo y Primer Plano */
-  --background: #F4F7FA; /* Fondo gris azulado claro */
-  --foreground: #2D3748; /* Azul oscuro casi negro para texto */
+  --background: #f0f9ff; /* Fondo gris azulado claro */
+  --foreground: black; /* Azul oscuro casi negro para texto */
 
   /* Colores de marca */
   --primary: #0078BE; /* Azul primario del logo */
@@ -24,14 +24,14 @@
   /* Neutrales */
   --gray: #6B7280;
   --gray-light: #E5E7EB;
-  --gray-dark: #374151;
+  --gray-dark: #ffffff;
 
   /* Elementos de interfaz */
   --card-bg: #FFFFFF;
   --input-bg: #F9FAFB;
   --input-border: #D1D5DB;
-  --text-primary: #2D3748; /* Texto principal oscuro para modo claro */
-  --text-secondary: #4A5568; /* Texto secundario ligeramente más claro */
+  --text-primary: black; /* Texto principal oscuro para modo claro */
+  --text-secondary: black; /* Texto secundario ligeramente más claro */
 }
 
 /* 🌙 Modo Oscuro - CORREGIDO */
@@ -39,7 +39,7 @@
   :root {
     /* Fondo y primer plano invertidos */
     --background: #2F3C51; /* Azul oscuro profundo */
-    --foreground: #F7FAFC; /* Casi blanco para texto */
+    --foreground: #f0f9ff; /* Casi blanco para texto */
 
     /* Colores de Marca en Oscuro - Más brillantes para mejor visibilidad */
     --primary: #0090E0; /* Azul logo más brillante */
@@ -55,16 +55,16 @@
     --danger: #EF4444;
 
     /* Neutrales adaptados para modo oscuro */
-    --gray: #9CA3AF;
-    --gray-light: #4B5563; /* Más visible en fondo oscuro */
-    --gray-dark: #111827;
+    --gray: #fbfbfb;
+    --gray-light: #ffffff; /* Más visible en fondo oscuro */
+    --gray-dark: #ffffff;
 
     /* Elementos de interfaz adaptados */
     --card-bg: #2D3748; /* Fondo de tarjeta azul oscuro */
     --input-bg: #374151; /* Entradas ligeramente más claras que el fondo */
     --input-border: #4B5563;
-    --text-primary: #F7FAFC; /* Texto principal claro para modo oscuro */
-    --text-secondary: #E2E8F0; /* Texto secundario ligeramente más oscuro que el principal */
+    /* --text-primary: black; Texto principal oscuro para modo claro */
+    /*--text-secondary: black; /* Texto secundario ligeramente más claro */
   }
 }
 
@@ -120,7 +120,7 @@ input:focus {
   }
 
   .btn-primary {
-    @apply btn text-white;
+    @apply btn text-black;
     background-color: var(--primary);
   }
   .btn-primary:hover {
@@ -129,7 +129,7 @@ input:focus {
   }
 
   .btn-secondary {
-    @apply btn text-white;
+    @apply btn text-black;
     background-color: var(--secondary);
   }
   .btn-secondary:hover {
@@ -138,7 +138,7 @@ input:focus {
   }
 
   .btn-tertiary {
-    @apply btn text-white;
+    @apply btn text-black;
     background-color: var(--tertiary);
   }
   .btn-tertiary:hover {
@@ -147,7 +147,7 @@ input:focus {
   }
 
   .btn-danger {
-    @apply btn text-white;
+    @apply btn text-black;
     background-color: var(--danger);
   }
   .btn-danger:hover {
@@ -185,7 +185,8 @@ input:focus {
 
 /* Clases de utilidad para manejo de texto */
 .text-on-primary {
-  color: white;
+  color: black;
+
 }
 
 .text-on-dark {
@@ -194,6 +195,7 @@ input:focus {
 
 .text-on-light {
   color: var(--text-primary);
+  
 }
 
 /* Correcciones para el modo oscuro */

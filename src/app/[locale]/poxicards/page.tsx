@@ -14,7 +14,8 @@ export default function TicketsPage() {
   if (!mounted) return null;
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors flex flex-col justify-center items-center py-14">
+    <div className="w-full min-h-screen bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
+  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51] transition-colors flex flex-col justify-center items-center py-14">
       {/* 🎁 Sección Principal */}
       <section className="w-full max-w-6xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative">
         {/* Título principal */}

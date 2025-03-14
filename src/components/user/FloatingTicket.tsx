@@ -12,7 +12,7 @@ export default function FloatingTicket() {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-20 right-4 bg-white z-50 text-gray-800 px-2 py-2 rounded-lg shadow-2xl border border-gray-700 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 w-[90%] sm:w-auto max-w-sm sm:max-w-none transition-all duration-300">
+    <div style={{ backdropFilter: "blur(2px)" }} className="fixed top-20 right-4 bg-gradient-to-b from-white/40 via-white/70 to-white/40 z-50 text-gray-800 px-2 py-2 rounded-lg shadow-2xl border border-gray-700 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 w-[90%] sm:w-auto max-w-sm sm:max-w-none transition-all duration-300">
       
       {/* 🏆 Texto descriptivo */}
       <span className="text-sm sm:text-lg font-semibold tracking-wide text-center sm:text-left">

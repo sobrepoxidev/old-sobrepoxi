@@ -69,7 +69,7 @@ const supabase = createServerComponentClient<Database>({ cookies: () => cookieSt
   // 5) Render
   return (
     <html lang={locale}>
-      <body className={`h-full flex flex-col ${inter.className} bg-background text-foreground transition-colors`}>
+      <body className={`h-full flex flex-col ${inter.className}`}>
         <NextIntlClientProvider>
           {/* Proveedor de Supabase con la session */}
           <SupabaseProvider session={session}>

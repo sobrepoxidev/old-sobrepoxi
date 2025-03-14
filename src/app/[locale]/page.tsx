@@ -66,12 +66,12 @@ export default function HomePage() {
         </div>
 
         {/* Capa de gradiente + contenido */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60 flex flex-col justify-center items-center text-center px-4">
-          <div className="max-w-full sm:max-w-5xl md:max-w-6xl px-4 py-6 rounded-lg bg-black/10 text-center">
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-white/5 flex flex-col justify-center items-center text-center px-4">
+          <div className="max-w-full sm:max-w-5xl md:max-w-6xl  rounded-lg bg-white/10 text-center" style={{ backdropFilter: "blur(1px)" }}>
+            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
               {t("heroTitle")}
             </h1>
-            <p className="text-base sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-base md:text-lg lg:text-xl text-gray-800 mb-6 max-w-3xl mx-auto leading-relaxed">
               {t("heroSubtitle")}
             </p>
 
@@ -112,107 +112,110 @@ export default function HomePage() {
       </section>
 
       {/* 💼 Servicios Destacados */}
-<section className="relative w-full min-h-screen
+      <section className="relative w-full min-h-screen
   bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
   dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]
   flex flex-col justify-center items-center overflow-x-hidden py-8">
-  <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col h-full">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-        <span className="relative inline-block">
-          {t("servicesTitle")}
-          <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
-        </span>
-      </h2>
-      <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
-        {t("servicesSubtitle")}
-      </p>
-    </div>
-
-    <div className="flex-grow flex items-center justify-center">
-      <ServicesCarousel />
-    </div>
-    
-    <div className="mt-8 text-center">
-  <p className="text-lg font-medium italic mb-4">{t("weAreHere")}</p>
-  <div className="flex justify-center">
-    <Link href="/gallery" className="px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors duration-300 flex items-center">
-      <span>{t("ctaButton2")}</span>
-      <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none">
-        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </Link>
-  </div>
-</div>
-  </div>
-</section>
-
-{/* 🏆 Trabajos Destacados */}
-<section className="relative w-full min-h-screen py-12 md:py-20 bg-gradient-to-b from-stone-50 via-stone-100 to-sky-50
-  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-        <span className="relative inline-block">
-          {t("projectsTitle")}
-          <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
-        </span>
-      </h2>
-      <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
-        {t("projectsSubtitle")}
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-      {projects.map((project) => (
-        <div
-          key={project.id}
-          className="group relative rounded-xl shadow-lg overflow-hidden h-64 sm:h-72"
-        >
-          <div className="relative w-full h-full">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col h-full">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+              <span className="relative inline-block">
+                {t("servicesTitle")}
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
+              </span>
+            </h2>
+            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+              {t("servicesSubtitle")}
+            </p>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity group-hover:opacity-90 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="inline-block px-3 py-1 text-white bg-secondary text-xs font-semibold rounded-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              {project.category}
-            </span>
-            <h3 className="text-xl font-bold text-white">
-              {project.title}
-            </h3>
-            
-            <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <Link
-                href="/gallery"
-                className="inline-flex items-center text-white hover:text-secondary transition-colors"
-              >
-                {t("projectsButton")}
-                <svg
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+
+          <div className="flex-grow flex items-center justify-center">
+            <ServicesCarousel />
+          </div>
+          <p className="text-base sm:text-lg font-medium italic mb-4">{t("weAreHere")}</p>
+
+          <div className="mt-8 text-center">
+
+            <div className="flex justify-center">
+              <Link href="/gallery" className="px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors duration-300 flex items-center">
+                <span>{t("ctaButton2")}</span>
+                <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
             </div>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
+
+      {/* 🏆 Trabajos Destacados */}
+      <section className="relative w-full min-h-screen bg-gradient-to-b from-stone-50 via-stone-100 to-sky-50
+  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+              <span className="relative inline-block">
+                {t("projectsTitle")}
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
+              </span>
+            </h2>
+            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+              {t("projectsSubtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="group relative rounded-xl shadow-lg overflow-hidden h-64 sm:h-72"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity group-hover:opacity-90 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="inline-block px-3 py-1 text-white bg-secondary text-xs font-semibold rounded-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-white">
+                    {project.title}
+                  </h3>
+
+                  <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <Link
+                      href="/gallery"
+                      className="inline-flex items-center text-white hover:text-secondary transition-colors"
+                    >
+                      {t("projectsButton")}
+                      <svg
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5 12H19M19 12L12 5M19 12L12 19"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <p className="text-base sm:text-lg font-medium italic mb-4">{t("weAreHereSubtitle")}</p>
+          </div>
+
+        </div>
+      </section>
 
       {/* 📞 Llamado a la Acción Mejorado */}
       <section className="py-12 md:py-20 relative overflow-hidden">
