@@ -263,7 +263,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`${isActive(link.href) ? 'text-primary dark:text-secondary' : ''}`}
+                    className={`${highlightClasses} ${isActive(link.href) ? 'text-primary dark:text-secondary' : ''}`}
                   >
                     {link.label}
                   </Link>
