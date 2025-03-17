@@ -2,6 +2,9 @@ import { createServerActionClient, createServerComponentClient } from '@supabase
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { Database } from '@/types-db';
+
+type UserTicketT = Database['user_tickets'];
 
 // Forzamos el rendering dinámico porque usamos Server Actions.
 export const dynamic = 'force-dynamic';
@@ -144,7 +147,7 @@ export default async function OrdersEditPage({ params }: { params: { orderId: st
     const nombreUsuario = session.user?.user_metadata?.name;
 
     // Función para formatear fecha y hora
-    const getFechaFormateada = (item: any) => {
+    const getFechaFormateada = (item: UserTicketT) => {
         const combinedDateTime = `${item.date}T${item.time}`;
         const dateObj = new Date(combinedDateTime);
         const dateFormatted = dateObj.toLocaleDateString('es-CR', {
