@@ -34,7 +34,7 @@ export default function ServicesCarousel() {
         {services.map((service, index) => (
           <div
             key={service.id}
-            className="bg-card-secondary rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300"
+            className="bg-card-secondary rounded-lg overflow-hidden group "
             onMouseEnter={() => setActiveService(index)}
           >
             <div className="overflow-hidden h-56 relative">
@@ -47,8 +47,8 @@ export default function ServicesCarousel() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <div className="p-5 pl-0">
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+            <div className="pt-1 pb-3 ">
+              <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
               <p className="text-text-secondary text-sm">
@@ -63,11 +63,11 @@ export default function ServicesCarousel() {
       <div className="md:hidden flex items-center justify-center h-full">
         <div className="relative w-full h-full flex flex-col justify-center">
           {/* Contenido del servicio activo */}
-          <div className="w-full px-4 flex-grow flex flex-col justify-center">
+          <div className="w-full flex-grow flex flex-col justify-center">
             {services.map((service, index) => (
               <div 
                 key={service.id} 
-                className={`bg-card-secondary rounded-lg overflow-hidden shadow-md transition-all duration-300 transform ${
+                className={`bg-card-secondary shadow-md p-1 overflow-hidden transition-all duration-300 transform ${
                   activeService === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95 absolute inset-0'
                 }`}
                 style={{
@@ -83,13 +83,13 @@ export default function ServicesCarousel() {
                     height={300}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>{/* agrega una pelicula obscura */}
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold mb-3 text-primary">
+                <div className="py-1">
+                  <h3 className="text-lg font-semibold text-primary">
                     {service.title}
                   </h3>
-                  <p className="text-text-secondary text-base">
+                  <p className="text-text-secondary text-sm">
                     {service.description}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export default function ServicesCarousel() {
           </div>
 
           {/* Controles de navegación */}
-          <div className="flex justify-between items-center px-6 py-4">
+          <div className="flex justify-between items-center px-6 py-2">
             <button 
               className="bg-black/30 hover:bg-black/50 p-3 rounded-full text-white shadow-md flex items-center justify-center"
               onClick={prevService}

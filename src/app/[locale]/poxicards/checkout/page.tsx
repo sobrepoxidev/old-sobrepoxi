@@ -243,8 +243,9 @@ export default function CheckoutWizardPage() {
     //     ...
     //   })
     // ...
-
+    
     let paymentStatus: "pending" | "paid" = "paid";
+  
     // Validaciones para SINPE
     if (paymentMethod === "sinpe") {
       if (!bancoSeleccionado) {
@@ -262,14 +263,16 @@ export default function CheckoutWizardPage() {
       paymentReference = `4 ultimos digitos: ${ultimos4} - Banco: ${bancoSeleccionado.nombre}`;
 
       // actualizar payment reference
-      const { data: dataUpdate, error: errorUpdate } = await supabase
+      const { data: order, error: errorUpdate } = await supabase
         .from("orders")
         .update({ payment_reference: paymentReference })
         .eq("id", createdOrderId)
         .select()
         .single();
 
-      if (errorUpdate || !dataUpdate) {
+
+
+      if (errorUpdate || !order) {
         console.error("Error al actualizar la orden:", errorUpdate);
         alert("Hubo un error al procesar la orden. Intenta de nuevo.");
         return;
@@ -299,7 +302,7 @@ export default function CheckoutWizardPage() {
           serie: chosen.serie,
           is_locked: isLockedValue,
           purchase_date: purchaseDateValue,
-          order_id: dataUpdate.id, // <-- asignamos el ID de la orden
+          order_id: order.id, // <-- asignamos el ID de la orden
           date: item.date,
           time: item.time
         });
@@ -345,7 +348,7 @@ export default function CheckoutWizardPage() {
 
       if (correo) {
       const cartCopy = [...cart];
-        await sendCartEmail(cartCopy, correo, nombreUsuario);
+        await sendCartEmail(cartCopy, correo, nombreUsuario, createdOrderId? createdOrderId : 0, paymentMethod);
       }
       clearCart();
     } else if (paymentStatus === "paid") {
@@ -355,7 +358,7 @@ export default function CheckoutWizardPage() {
 
       if (correo) {
         const cartCopy = [...cart];
-        await sendCartEmail(cartCopy, correo, nombreUsuario);
+        await sendCartEmail(cartCopy, correo, nombreUsuario, createdOrderId? createdOrderId : 0, paymentMethod? paymentMethod : "");
       }
       clearCart();
       //router.push(`/personalizar-tickets?order=${createdOrder.id}`);
@@ -376,13 +379,13 @@ export default function CheckoutWizardPage() {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-0 py-14">
+    <main className="max-w-3xl mx-auto px-6 py-14">
       {/* Encabezado */}
       <header className="flex items-center gap-4 mb-6">
         {currentStep > 1 && currentStep <= 3 && (
           <button
             onClick={goBack}
-            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+            className="bg-gray-200 text-gray-800 p-1 rounded-md hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           >
             &larr; Paso anterior
           </button>
@@ -390,15 +393,15 @@ export default function CheckoutWizardPage() {
         {currentStep === 1 && (
           <button
             onClick={() => router.back()}
-            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+            className="bg-gray-200 text-gray-800 p-1 rounded-md hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           >
             &larr; Regresar
           </button>
         )}
         {currentStep >= 1 && currentStep <= 3 ? (
-          <h1 className="text-2xl font-bold">Checkout (Paso {currentStep} de 3)</h1>
+          <h1 className="text-base sm:text-2xl font-bold">Checkout (Paso {currentStep} de 3)</h1>
         ) : (
-          <h1 className="text-2xl font-bold text-green-600">¡Compra realizada con éxito!</h1>
+          <h1 className="text-base sm:text-2xl font-bold">¡Compra realizada con éxito!</h1>
         )}
       </header>
 

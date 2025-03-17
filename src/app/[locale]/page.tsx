@@ -51,11 +51,11 @@ export default function HomePage() {
       <FloatingTicket />
 
       {/* 🌟 Hero Section - OPTIMIZADO */}
-      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-x-hidden">
+      <section className="relative w-full min-h-screen">
         {/* Imagen de fondo */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/home_1_2.webp"
+            src="/home_1_5.webp"
             alt="Muebles exclusivos"
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
@@ -66,79 +66,74 @@ export default function HomePage() {
         </div>
 
         {/* Capa de gradiente + contenido */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-white/5 flex flex-col justify-center items-center text-center px-4">
-          <div className="max-w-full sm:max-w-5xl md:max-w-6xl  rounded-lg bg-white/10 text-center" style={{ backdropFilter: "blur(1px)" }}>
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+        <div className="absolute inset-0 bg-gradient-to-b 
+                      from-white/15 via-white/20 to-white/5 
+                      dark:from-black/35 dark:via-black/25 dark:to-black/15
+                      flex flex-col justify-center items-center px-2">
+          <div className="max-w-full sm:max-w-5xl md:max-w-6xl text-center" style={{ backdropFilter: "blur(1px)" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+
               {t("heroTitle")}
+
             </h1>
-            <p className="text-base sm:text-base md:text-lg lg:text-xl text-gray-800 mb-6 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl mb-6 max-w-3xl mx-auto backdrop-blur-3xl">
+
               {t("heroSubtitle")}
+
             </p>
 
             {/* Botones */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/about-us"
-                className="btn-primary px-4 py-3 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto"
-              >
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              <Link href="/about-us" className="btn-primary px-2 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto">
+
                 {t("heroButton1")}
+
               </Link>
-              <Link
-                href="/contact-us"
-                className="btn-secondary px-4 py-3 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto"
-              >
+              <Link href="/contact-us" className="btn-secondary px-4 py-3 text-base sm:px-6 sm:py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full sm:w-auto">
+
                 {t("heroButton2")}
+
               </Link>
             </div>
           </div>
         </div>
 
         {/* Flecha ajustada */}
-        <div className="absolute bottom-8 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
-          <svg
-            className="w-10 h-10 text-white animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
+        <div className="absolute bottom-24 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center">
+          <svg className="w-10 h-10 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </section>
 
       {/* 💼 Servicios Destacados */}
-      <section className="relative w-full min-h-screen
-  bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
-  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]
-  flex flex-col justify-center items-center overflow-x-hidden py-8">
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col h-full">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="relative inline-block">
-                {t("servicesTitle")}
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
-              </span>
+      <section className="relative max-w-full min-h-[calc(100vh-48px)] flex flex-col items-center overflow-x-hidden bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50 dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]">
+        <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col h-full">
+          <div className="text-center justify-center py-2 sm:py-4 md:py-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+
+              {t("servicesTitle")}
+
+
             </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+            <p className="text-base text-start md:text-lg text-text-secondary max-w-3xl">
+
               {t("servicesSubtitle")}
+
             </p>
           </div>
-
-          <div className="flex-grow flex items-center justify-center">
+          <div className="flex items-center justify-center">{/* flex-grow */}
             <ServicesCarousel />
           </div>
-          <p className="text-base sm:text-lg font-medium italic mb-4">{t("weAreHere")}</p>
-
+          <p className="text-base sm:text-lg font-medium italic py-2">{t("weAreHere")}</p>
           <div className="mt-8 text-center">
-
             <div className="flex justify-center">
               <Link href="/gallery" className="px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors duration-300 flex items-center">
-                <span>{t("ctaButton2")}</span>
+                <span>
+
+                  {t("ctaButton2")}
+
+                </span>
                 <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -149,22 +144,19 @@ export default function HomePage() {
       </section>
 
       {/* 🏆 Trabajos Destacados */}
-      <section className="relative w-full min-h-screen bg-gradient-to-b from-stone-50 via-stone-100 to-sky-50
+      <section className="relative max-w-full min-h-[calc(100vh-48px)] flex flex-col items-center overflow-x-hidden bg-gradient-to-b from-stone-50 via-stone-100 to-sky-50
   dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              <span className="relative inline-block">
-                {t("projectsTitle")}
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary transform -translate-y-2"></span>
-              </span>
+        <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col h-full">
+          <div className="text-center justify-center py-2 sm:py-4 md:py-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+              {t("projectsTitle")}
             </h2>
-            <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+            <p className="text-base text-start md:text-lg text-text-secondary max-w-3xl">
               {t("projectsSubtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
@@ -180,7 +172,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity group-hover:opacity-90 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="inline-block px-3 py-1 text-white bg-secondary text-xs font-semibold rounded-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="inline-block py-1 text-white bg-secondary text-xs font-semibold rounded-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.category}
                   </span>
                   <h3 className="text-xl font-bold text-white">
@@ -211,14 +203,28 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-            <p className="text-base sm:text-lg font-medium italic mb-4">{t("weAreHereSubtitle")}</p>
           </div>
 
+          <p className="text-base sm:text-lg font-medium italic py-2 sm:py-4">{t("weAreHereSubtitle")}</p>
+          <div className="mt-8 text-center">
+            <div className="flex justify-center">
+              <Link href="/gallery" className="px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors duration-300 flex items-center">
+                <span>
+
+                  {t("ctaButton3")}
+
+                </span>
+                <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 📞 Llamado a la Acción Mejorado */}
-      <section className="py-12 md:py-20 relative overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/bg.webp"
@@ -228,14 +234,14 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="rounded-2xl p-6 sm:p-10 shadow-xl">
+        <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="rounded-2xl py-2 pb-4 sm:p-10 ">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 leading-tight">
                   {t("ctaTitle")}
                 </h2>
-                <p className="text-base md:text-lg text-text-secondary mb-6">
+                <p className="text-base md:text-lg text-text-secondary mb-2">
                   {t("ctaDescription")}
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -287,7 +293,7 @@ export default function HomePage() {
       </section>
 
       {/* 🎟 Call to Action - Tickets Mejorado */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-primary to-secondary">
+      <section className="py-2 md:py-20 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-5 gap-8 items-center">
             <div className="md:col-span-3">
@@ -337,28 +343,13 @@ export default function HomePage() {
                     </h3>
                     <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 relative">
                       <div className="absolute inset-0 bg-primary rounded-full opacity-30 animate-ping" />
-                      <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 200 200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full"
-                      >
-                        <circle cx="100" cy="100" r="100" fill="#0078BE" />
-                        <path
-                          d="M20 85 C50 30, 150 30, 180 85 C160 120, 40 120, 20 85 Z"
-                          fill="#38B6FF"
-                          opacity="0.9"
-                        />
-                        <path
-                          d="M20 100 C50 70, 150 70, 180 100 C160 140, 40 140, 20 100 Z"
-                          fill="#005AA7"
-                        />
-                        <path
-                          d="M20 120 C50 180, 150 180, 180 120 C160 170, 40 170, 20 120 Z"
-                          fill="#003366"
-                        />
-                      </svg>
+                      <Image
+                        src="/logo.svg"
+                        alt="Sobrepoxi"
+                        width={200}
+                        height={200}
+                        className="w-15 h-15 pl-0 ml-0"
+                      />
                     </div>
                     <p className="text-lg font-medium mb-2 ">
                       {t("ticketMonth")}
@@ -378,9 +369,9 @@ export default function HomePage() {
       </section>
 
       {/* 📱 Testimonios con Slider */}
-      <section className="py-12 md:py-20 bg-background">
+      <section className="py-2 sm:py-4 md:py-6 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center sm:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               <span className="relative inline-block">
                 {t("testimonialsTitle")}

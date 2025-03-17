@@ -173,6 +173,13 @@ export default function TicketTypesPageClient({
                 {/* Contenedor del QR */}
                 <div className="mt-3 sm:mt-0 flex-1 flex justify-center items-center">
                   <QRCodeSVG value="https://example.com/ticket" size={40} />
+                  <Image
+                                src="/logo.svg"
+                                alt="Sobrepoxi"
+                                width={80}
+                                height={80}
+                                className="w-15 h-15 pl-0 ml-0"
+                              />
                 </div>
               </div>
 

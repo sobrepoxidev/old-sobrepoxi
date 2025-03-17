@@ -39,7 +39,7 @@ export default function LocaleSwitcherSelect({
     <div className="flex items-end">
       <label
         className={clsx(
-          'relative text-gray-600',
+          'relative text-gray-800 dark:text-gray-200',
           isPending && 'transition-opacity [&:disabled]:opacity-30'
         )}
       >

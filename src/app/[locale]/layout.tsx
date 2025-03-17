@@ -23,7 +23,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function generateStaticParams() {
   // Rutas estáticas para build: /en y /es
-  return [{ locale: 'en' }, { locale: 'es' }];
+  return [{ locale: 'es' }, { locale: 'en' }];
 }
 
 // Este layout se invoca en /[locale]/..., por lo que param.lang es "es" o "en"
@@ -32,8 +32,7 @@ export default async function LocaleLayout({
   params
 }: {
   children: ReactNode;
-  params: Promise<{locale: string}>
-  ;
+  params: Promise<{locale: string}>;
 }) {
   // // 1) Verificamos que locale sea válido
   // if (!['en', 'es'].includes(params.locale)) {
@@ -76,7 +75,7 @@ const supabase = createServerComponentClient<Database>({ cookies: () => cookieSt
             {/* Proveedor de carrito */}
             <CartProvider>
             <Navbar />
-              {/* Contenido principal crece y empuja el footer hasta el final */}
+              {/* Contenido principal crece y empuja el footer hasta el final " */}
               <main className="flex-grow">{children}</main>
               {/* Footer siempre al final */}
               <Footer />

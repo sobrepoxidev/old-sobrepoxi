@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useSupabase } from '@/app/supabase-provider/provider'
 import { Session } from '@supabase/supabase-js';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useRouter, usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -36,7 +37,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       // Activar el fondo cuando el scroll supere el 80% del alto de la ventana
-      const scrolled = window.scrollY > window.innerHeight * 0.25;
+      const scrolled = window.scrollY > window.innerHeight * 0.20;
       setIsScrolled(scrolled);
     };
 
@@ -109,45 +110,23 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-sky-100 dark:bg-[#2D3748] shadow-md rounded-lg bg-white/5 }' 
+        ? 'bg-sky-100 dark:bg-[#2D3748] shadow-md}' 
         : 'bg-transparent shadow-none' 
     }`} style={{ backdropFilter: `${ isScrolled  ? "" : "blur(1px)"}` }}>
-      <nav className="max-w-full mx-auto px-4 py-1 flex items-center justify-between">
+      <nav className="max-w-full mx-auto px-4 py-0 flex items-center justify-between">
 
         {/* 🔹 Logo / Branding */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center -space-x-2 group">
             {/* Logo SVG de Sobrepoxi */}
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <circle cx="100" cy="100" r="100" fill="#0078BE" />
-
-
-              <path
-                d="M20 85 C50 30, 150 30, 180 85 C160 120, 40 120, 20 85 Z"
-                fill="#38B6FF"
-                opacity="0.9"
-              />
-
-
-
-              <path
-                d="M20 100 C50 70, 150 70, 180 100 C160 140, 40 140, 20 100 Z"
-                fill="#005AA7"
-              />
-
-
-              <path
-                d="M20 120 C50 180, 150 180, 180 120 C160 170, 40 170, 20 120 Z"
-                fill="#003366"
-              />
-            </svg>
-            <span className={`text-2xl font-extrabold transition-colors ${
+            <Image
+              src="/logo.svg"
+              alt="Sobrepoxi"
+              width={65}
+              height={65}
+              className="w-15 h-15 pl-0 ml-0"
+            />
+            <span className={`text-2xl pl-0 ml-0 font-extrabold transition-colors ${
         isScrolled 
           ? 'text-primary dark:text-white' 
           : ' dark:text-gray-100'
@@ -188,8 +167,8 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               {guestLinks.map(link => {
                 const highlightClasses = link.highlight
-                  ? 'btn-primary px-1 py-1   shadow-lg shadow-primary/20'
-                  : 'nav-link dark:text-gray-light hover:text-secondary transition-colors';
+                  ? 'btn-primary dark:text-white px-1 py-1   shadow-lg shadow-primary/20'
+                  : 'nav-link dark:text-white hover:text-secondary transition-colors';
                 return (
                   <a
                     key={link.href}

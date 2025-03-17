@@ -18,7 +18,7 @@ type CartItem = Database['user_tickets'];
 //   image_url?: string;
 // }
 
-export const sendCartEmail = async (cartData: CartItem[], correo: string | undefined, nombreUsuario: string | undefined) => {
+export const sendCartEmail = async (cartData: CartItem[], correo: string | undefined, nombreUsuario: string | undefined, orderId: number, method: string) => {
   // Validar datos
   if (!cartData || cartData.length === 0) {
     throw new Error('El carrito está vacío');
@@ -34,13 +34,13 @@ export const sendCartEmail = async (cartData: CartItem[], correo: string | undef
   // Construir contenido del correo
   const htmlContent = `
     <div style="max-width: 600px; margin: auto; font-family: Arial, sans-serif;">
-      <header style="text-align: center; padding: 20px; background-color: #f8f9fa;">
+      <header style="text-align: center; padding: 20px">
         <div class="header" style="background: transparent; text-align: center; margin-bottom: 20px;">
-  <img src="https://drive.google.com/uc?export=view&id=1dWPIIrd0-2sTiHBquWMzu464zv27T4l9" 
-       alt="Sobrepoxi" 
-       class="logo" 
-       style="width: 120px; height: auto; border-radius: 50%; display: block; margin: 0 auto;">
-</div>
+          <img src="https://drive.google.com/uc?export=view&id=1dWPIIrd0-2sTiHBquWMzu464zv27T4l9" 
+            alt="Sobrepoxi" 
+            class="logo" 
+            style="width: 120px; height: auto; border-radius: 50%; display: block; margin: 0 auto;">
+        </div>
 
         <h1 style="color: #2b2d42; margin-top: 10px;">¡Gracias por tu compra!</h1>
       </header>
@@ -75,6 +75,22 @@ export const sendCartEmail = async (cartData: CartItem[], correo: string | undef
         <div style="text-align: right; font-size: 1.1em; margin-top: 20px;">
           <strong>Total:</strong> ₡${total.toLocaleString('es-CR')}
         </div>
+        <p style="margin-top: 15px;">El número de orden de tu compra es: <strong>${orderId}</strong></p>
+        
+        
+        ${method==='sinpe' ? `
+          <p>Método de pago: <strong>SINPE MÓVIL</strong></p>
+          <p style="margin-top: 20px;">Puedes ver tu orden y editar tu número de comprobante SINPE (24 horas hábiles) en el siguiente enlace:</p>
+          <a href="https://sobrepoxi.vercel.app/poxicards/orders/${orderId}/edit" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #2b2d42; color: white; text-decoration: none; border-radius: 8px;">Ver Orden</a>
+          
+          ` : 
+          `
+          <p>Método de pago: <strong>${method}</strong></p>
+          <p style="margin-top: 20px;">Puedes ver tu orden en el siguiente enlace:</p>
+          <a href="https://sobrepoxi.vercel.app/poxicards/orders/${orderId}/edit" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #2b2d42; color: white; text-decoration: none; border-radius: 8px;">Ver Orden</a>
+          
+          `
+        }
 
         <div style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
           <h3 style="color: #2b2d42; margin-bottom: 15px;">¡Importante!</h3>
