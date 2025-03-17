@@ -76,8 +76,9 @@ async function updatePaymentReference(formData: FormData) {
 }
 
 // Page Server Component
-export default async function OrdersEditPage({ params }: { params: { orderId: string } }) {
-    const { orderId } = params;
+type tParams = Promise<{ orderId: string }>;
+export default async function OrdersEditPage(props: { params: tParams }) {
+    const { orderId } = await props.params;
 
     // Iniciamos el cliente para Server Components y obtenemos la sesión
     const cookieStore = cookies();
