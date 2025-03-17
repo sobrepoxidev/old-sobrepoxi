@@ -113,18 +113,18 @@ export default function Navbar() {
         ? 'bg-sky-100 dark:bg-[#2D3748] shadow-md}' 
         : 'bg-transparent shadow-none' 
     }`} style={{ backdropFilter: `${ isScrolled  ? "" : "blur(1px)"}` }}>
-      <nav className="max-w-full mx-auto px-4 py-0 flex items-center justify-between">
+      <nav className="max-w-full mx-auto pl-1 sm:px-4 py-0 flex items-center justify-between">
 
         {/* 🔹 Logo / Branding */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center -space-x-2 group">
+          <Link href="/" className="flex items-start space-x-1 group">
             {/* Logo SVG de Sobrepoxi */}
             <Image
-              src="/logo.svg"
+              src="/logo3.svg"
               alt="Sobrepoxi"
-              width={65}
-              height={65}
-              className="w-15 h-15 pl-0 ml-0"
+              width={27}
+              height={27}
+              className="w-15 h-15 pt-0.5 "
             />
             <span className={`text-2xl pl-0 ml-0 font-extrabold transition-colors ${
         isScrolled 
