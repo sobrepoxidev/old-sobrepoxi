@@ -21,7 +21,7 @@ const bancos = [
 ];
 
 // Server Action que actualiza `payment_reference`
-export async function updatePaymentReference(formData: FormData) {
+async function updatePaymentReference(formData: FormData) {
     "use server";
 
     // Obtenemos los datos enviados desde el formulario.
