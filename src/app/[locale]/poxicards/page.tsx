@@ -1,25 +1,18 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 export default function TicketsPage() {
-  const [mounted, setMounted] = useState(false);
   const t = useTranslations("ticketsPage");
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
-  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51] transition-colors flex flex-col justify-center items-center py-14">
+  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51] transition-colors flex flex-col justify-start items-center py-14">
       {/* 🎁 Sección Principal */}
-      <section className="w-full max-w-6xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative">
+      <section className="w-full max-w-6xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative ">
         {/* Título principal */}
-        <h1 className="w-full text-xl sm:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight text-center">
+        <h1 className="w-full text-xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight text-center">
           {t.rich("mainTitle", {
             // Reemplazamos <span> por un span con clase
             span: (chunks) => <span className="text-blue-500">{chunks}</span>,
