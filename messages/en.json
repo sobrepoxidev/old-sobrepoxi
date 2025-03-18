@@ -114,5 +114,54 @@
     "title": "Projects Gallery",
     "subtitle": "Discover the magic of our creations and let yourself be inspired by innovation."
 
+  },
+  "contact": {
+    "hero": {
+      "title": "Let's Talk!",
+      "subtitle": "We're here to transform your ideas into real projects."
+    },
+    "info": {
+      "heading": "Get in Touch",
+      "description": "Are you looking for custom furniture, design consultancy, or just a quick decoration tip? We're excited to help you! Remember, the first consultation is completely free."
+    },
+    "contactDetails": {
+      "phone": "+506 8585-0000",
+      "email": "info@sobrepoxi.cr",
+      "location": "San José, Costa Rica"
+    },
+    "form": {
+      "heading": "Send Us Your Message",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your full name",
+        "email": "your@email.com",
+        "subject": "Consultancy, Custom Furniture, etc.",
+        "message": "Tell us what you're thinking..."
+      },
+      "button": "Send Message"
+    },
+    "footer": {
+      "heading": "We Love Meeting Creative People",
+      "description": "Would you like to share a crazy idea and see how we bring it to life? This is the place! Remember: the best way to start something great is by saying 'Hello'."
+    }
+  },
+  "verpoxicards":{
+    "title": "Current PoxiCards",
+    "unavailable": "No PoxiCards available at this time.",
+    "subtitle": "Buy your poxicard, personalize it, and enter to win big prizes.",
+    "cart": "Cart"
+  },
+  "poxicard":{
+    "noimage": "No image",
+    "number": "Number",
+    "date": "Date",
+    "time": "Time",
+    "viewdetails": "View Details",
+    "addtocart": "Add to Cart"
   }
 }

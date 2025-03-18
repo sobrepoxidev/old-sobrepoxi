@@ -5,9 +5,11 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 import TicketTypesPageClient from '@/components/user/TicketTypesPageClient'; // <-- Importamos el comp. cliente
+import { getTranslations } from 'next-intl/server';
 
 
 export default async function TicketTypesPage() {
+  const t = await getTranslations('verpoxicards');
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
   const {
@@ -36,8 +38,8 @@ export default async function TicketTypesPage() {
 
     return (
       <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-10 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">PoxiCards Actuales</h1>
-        <p className="text-gray-700 dark:text-gray-300">No hay PoxiCards disponibles en este momento.</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t("title")}</h1>
+        <p className="text-gray-700 dark:text-gray-300">{t("unavailable")}</p>
       </main>
     );
   }

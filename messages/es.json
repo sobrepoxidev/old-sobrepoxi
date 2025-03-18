@@ -120,6 +120,56 @@
   "gallery":{
       "title": "Galería de proyectos",
       "subtitle": "Descubre la magia de nuestras creaciones y déjate llevar por la innovación"
+  },
+  "contact": {
+    "hero": {
+      "title": "¡Hablemos!",
+      "subtitle": "Estamos aquí para transformar tus ideas en proyectos reales."
+    },
+    "info": {
+      "heading": "Ponte en contacto",
+      "description": "¿Buscás muebles personalizados, consultoría de diseño o simplemente un consejo rápido sobre decoración? ¡Estamos ansiosos por ayudarte! Recordá que la primera consulta es completamente gratis."
+    },
+    "contactDetails": {
+      "phone": "+506 8585-0000",
+      "email": "info@sobrepoxi.cr",
+      "location": "San José, Costa Rica"
+    },
+    "form": {
+      "heading": "Déjanos tu mensaje",
+      "labels": {
+        "name": "Nombre",
+        "email": "Correo Electrónico",
+        "subject": "Asunto",
+        "message": "Mensaje"
+      },
+      "placeholders": {
+        "name": "Tu nombre completo",
+        "email": "tu@correo.com",
+        "subject": "Consultoría, Mueble a Medida, etc.",
+        "message": "Contanos lo que tenés en mente..."
+      },
+      "button": "Enviar Mensaje"
+    },
+    "footer": {
+      "heading": "Nos encanta conocer gente creativa",
+      "description": "¿Te gustaría darnos una idea loca y ver cómo la hacemos realidad? ¡Éste es el lugar! Recordá: la mejor manera de empezar algo genial es decir 'Hola'."
+    }
+  },
+  "verpoxicards":{
+    "title": "PoxiCards Disponibles",
+    "unavailable": "No hay PoxiCards disponibles en este momento.",
+    "subtitle": "Compra tu poxicard, personalizalo y participa por grandes premios.",
+    "cart": "Carrito"
+  },
+  "poxicard": {
+    "noimage": "Sin imagen",
+    "number": "Número",
+    "date": "Fecha",
+    "time": "Hora",
+    "viewdetails": "Ver Detalles",
+    "addtocart": "Agregar al Carrito"
+
   }
 
 }

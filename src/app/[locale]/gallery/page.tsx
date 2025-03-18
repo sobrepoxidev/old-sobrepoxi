@@ -1,18 +1,13 @@
-// ----------------------------------------
-// src/app/services/page.tsx
-// ----------------------------------------
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { getTranslations } from "next-intl/server"; // Cambia la importación
+import { supabase } from "@/lib/supabaseClient";
 import { Suspense } from "react";
 import Loading from "@/components/ui/LoadingGallery";
 import { ProductCard } from "@/components/gallery/ProductCard";
 // Solo importamos GalleryModal: un Client Component para el modal global
 import { GalleryModal } from "@/components/gallery/ClientComponents";
 
-
-export default async function ServicesPage() {
-  const supabase = createServerComponentClient({ cookies });
- 
+const ServicesPage: React.FC = async () => {
+  const t = await getTranslations("gallery"); // Usa getTranslations con await
 
   // Consulta a Supabase
   const { data: products, error } = await supabase
@@ -46,8 +41,6 @@ export default async function ServicesPage() {
     );
   }
 
-  
-
 
   return (
     <div
@@ -57,18 +50,18 @@ export default async function ServicesPage() {
     >
       <section className="w-full max-w-7xl 2xl:max-w-screen-2xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative">
         <h1 className="w-full text-xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight text-center">
-    
+          {t("title")}
         </h1>
         <p className="w-full text-sm sm:text-lg text-gray-600 dark:text-gray-300 mt-2">
-         
+          {t("subtitle")}
         </p>
 
         {/* Fallback mientras se cargan datos o client components */}
         <Suspense fallback={<Loading />}>
-          {/* Modal global: componente cliente montado una sola vez */}
+       
           <GalleryModal />
 
-          {/* Grid de productos (SSR) */}
+         
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-3">
             {products.map((product) => (
               <div key={product.id}>
@@ -81,3 +74,5 @@ export default async function ServicesPage() {
     </div>
   );
 }
+
+export default ServicesPage;

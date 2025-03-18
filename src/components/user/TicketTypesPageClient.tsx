@@ -6,6 +6,7 @@ import { useCart } from "@/components/context/CartContext";
 import Link from "next/link";
 import { Database } from '@/types-db';
 import { Toaster, toast } from 'sonner';
+import { useTranslations } from "next-intl";
 
 type TypeTicket = Database['ticket_types'];
 type UsertTicket = Database['user_tickets'];
@@ -35,6 +36,8 @@ export default function TicketTypesPageClient({
 }: {
   ticketTypes: TypeTicket[]
 }) {
+  const t = useTranslations("verpoxicards");
+  const p = useTranslations("poxicard");
 
   const { cart, addToCart } = useCart();
   const cartCount = cart.length;
@@ -81,10 +84,10 @@ export default function TicketTypesPageClient({
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            PoxiCards Disponibles
+            {t("title")}
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Compra tu poxicard, personalizalo y participa por grandes premios.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -94,7 +97,7 @@ export default function TicketTypesPageClient({
           href="/poxicards/checkout"
         >
           <span className="text-xl">🛒</span>
-          <span>Carrito ({cartCount})</span>
+          <span>{t("cart")} ({cartCount})</span>
         </Link>
       </header>
 
@@ -121,7 +124,7 @@ export default function TicketTypesPageClient({
                 />
               ) : (
                 <div className="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-                  📷 Sin imagen
+                  📷 {p("noimage")}
                 </div>
               )}
             </div>
@@ -136,7 +139,7 @@ export default function TicketTypesPageClient({
               {/* 2) Fila con Número y Serie (2 columnas en pantallas medianas) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm">
                 <div>
-                  <span className="font-semibold">Número: </span>
+                  <span className="font-semibold">{p("number")}: </span>
                   <span className="text-indigo-600 dark:text-indigo-400">
                     {ticket.min_number} - {ticket.max_number}
                   </span>
@@ -152,12 +155,19 @@ export default function TicketTypesPageClient({
               {/* 3) Fila con Fecha y Hora (2 columnas en pantallas medianas) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-sm">
                 <div>
-                  <span className="font-semibold">Fecha: </span>
-                  <span>{ticket.date}</span>
+                  <span className="font-semibold">{p("date")}: </span>
+                  <span>{new Date(`${ticket.date}T${ticket.time}`).toLocaleDateString('es-CR', {
+      timeZone: 'America/Costa_Rica',
+    })}</span>
                 </div>
                 <div>
-                  <span className="font-semibold">Hora: </span>
-                  <span>{ticket.time.slice(0, 5)}</span>
+                  <span className="font-semibold">{p("time")}: </span>
+                  <span>{new Date(`${ticket.date}T${ticket.time}`).toLocaleTimeString('es-CR', {
+      timeZone: 'America/Costa_Rica',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // fuerza AM/PM
+    })}</span>
                 </div>
               </div>
 
@@ -191,14 +201,14 @@ export default function TicketTypesPageClient({
                 href={`/poxicards/${ticket.id}`}
                 className="block w-full text-center font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-md transition hover:bg-indigo-600 hover:text-white"
               >
-                Ver Detalles
+                {p("viewdetails")}
               </Link>
 
               <button
                 onClick={() => addUserCart(ticket)}
                 className="w-full inline-flex items-center justify-center font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md transition hover:bg-indigo-500"
               >
-                Agregar al Carrito
+                {p("addtocart")}
               </button>
             </div>
           </div>
