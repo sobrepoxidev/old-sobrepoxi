@@ -167,14 +167,14 @@ export default async function OrdersEditPage(props: { params: tParams }) {
         <div className="w-full min-h-screen bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
   dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51] transition-colors flex flex-col items-center py-14">
             {/* Botón volver y título */}
-            <div className="w-full max-w-6xl flex items-center text-center">
+            <div className="w-full max-w-3xl mx-auto  flex items-center text-center">
                 <Link
                     href={`/es/poxicards/orders/${orderId}`}
                     className="bg-gray-200 text-gray-800 p-1 mb-2 mx-2 rounded-md text-sm font-semibold hover:bg-gray-300 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                 >
                     &larr; Regresar
                 </Link>
-                <h1 className="text-xl font-bold">Detalles de la Orden</h1>
+                <h1 className="text-base sm:text-2xl font-bold">Detalles de la Orden</h1>
             </div>
 
             {/* Bloque de edición SINPE (si aplica) */}
@@ -234,7 +234,12 @@ export default async function OrdersEditPage(props: { params: tParams }) {
                     <p><strong>Correo:</strong> {correo}</p>
                     <p><strong>Nombre:</strong> {nombreUsuario}</p>
                     <p><strong>Método de Pago:</strong> {order.payment_method}</p>
-                    <p><strong>Fecha Creación:</strong> {new Date(order.created_at).toLocaleString('es-CR')}</p>
+                    <p><strong>Fecha Creación:</strong> {new Date(order.created_at).toLocaleDateString('es-CR', {
+                        timeZone: 'America/Costa_Rica',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true, // fuerza AM/PM
+                    })}</p>
                 </div>
             </section>
 
