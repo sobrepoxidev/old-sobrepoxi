@@ -37,7 +37,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
       {/* Carrusel: delegamos a un Client Component */}
-      <MediaCarousel media={media} productId={id} productName={name} />
+      <MediaCarousel media={media} productName={name} />
 
       {/* Product info */}
       <div className="p-4 flex flex-col flex-grow">
