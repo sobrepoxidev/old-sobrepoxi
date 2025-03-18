@@ -1,17 +1,8 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 const AboutPage: React.FC = () => {
-  const [mounted, setMounted] = useState(false);
   const t = useTranslations("aboutPage");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) return null;
 
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
@@ -22,11 +13,11 @@ const AboutPage: React.FC = () => {
           alt="Sobrepoxi - Diseño y Mobiliario"
           fill
           style={{ objectFit: "cover" }}
-          quality={10}
+          quality={30}
           className="opacity-80"
           priority
         />
-        <div className="absolute inset-0 bg-white/20 flex flex-col items-center justify-center text-center px-4">
+        <div className="absolute inset-0 bg-white/5 dark:bg-black/5 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
             {t("heroTitle")}
           </h1>

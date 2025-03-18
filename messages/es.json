@@ -116,6 +116,10 @@
     "step4Title": "4. ¡Gana Premios! 🎁",
     "step4Desc": "Si tu número coincide con el de la lotería, ¡te llevas el premio!",
     "legalWarning": "La compra del PoxiCard digital no implica la compra de una participación en el sorteo. Al adquirir el PoxiCard, recibes automáticamente una entrada gratuita como cortesía."
+  },
+  "gallery":{
+      "title": "Galería de proyectos",
+      "subtitle": "Descubre la magia de nuestras creaciones y déjate llevar por la innovación"
   }
 
 }

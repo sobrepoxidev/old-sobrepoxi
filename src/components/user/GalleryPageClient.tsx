@@ -95,13 +95,10 @@ export default function GalleryPageClient({ products }: Props) {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-sky-50 via-sky-100 to-stone-50
-  dark:bg-gradient-to-b dark:from-[#2F3C51] dark:via-[#46586F] dark:to-[#2F3C51] transition-colors flex flex-col justify-start items-center py-14">
-    <section className="w-full max-w-7xl 2xl:max-w-screen-2xl flex flex-col items-center text-center py-1 px-1 md:py-5 sm:px-5 md:px-14 lg:px-5 relative ">
-      <h1 className="w-full text-xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight text-center">Galería de proyectos</h1>
-
+    
+    <>
       {/* Responsive product grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-3">
         {products.map((product) => (
           <ProductCard 
             key={product.id} 
@@ -123,8 +120,8 @@ export default function GalleryPageClient({ products }: Props) {
           onClose={closeModal}
         />
       )}
-      </section>
-    </div>
+      </>
+     
   );
 }
 

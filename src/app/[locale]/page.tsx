@@ -10,37 +10,12 @@ import ServicesCarousel from '@/components/user/ServicesCarousel';
 
 // Datos que no cambian con frecuencia (pueden ir en un json o fetch estático)
 
-
-
 interface Project {
   id: number;
   title: string;
   category: string;
   image: string;
 }
-// const projects = [
-//   {
-//     id: 1,
-//     title: 'Río de Resina',
-//     image: '/home_5.webp',
-//     category: 'Mobiliario decorativo'
-//   },
-//   {
-//     id: 2,
-//     title: 'Escritorio Abstracto',
-//     image: '/home_6.webp',
-//     category: 'Mobiliario de Oficina'
-//   },
-//   {
-//     id: 3,
-//     title: 'Abstracción de Madera',
-//     image: '/home_7.webp',
-//     category: 'Mobiliario comercial'
-//   }
-// ];
-
-
-
 
 export default function HomePage() {
   const t = useTranslations('common');
@@ -59,7 +34,7 @@ export default function HomePage() {
             alt="Muebles exclusivos"
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
-            quality={80}
+            quality={30}
             className="transition-transform duration-[10000ms] ease-in-out scale-105 animate-subtle-zoom"
             priority
           />

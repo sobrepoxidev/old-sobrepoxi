@@ -38,7 +38,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Fondo y primer plano invertidos */
-    --background: #2F3C51; /* Azul oscuro profundo */
+    --background: #1F2937; /* Azul oscuro profundo */
     --foreground: #f0f9ff; /* Casi blanco para texto */
 
     /* Colores de Marca en Oscuro - Más brillantes para mejor visibilidad */

@@ -109,5 +109,10 @@
     "step4Title": "4. Win Prizes! 🎁",
     "step4Desc": "If your number matches the lottery draw, you win the prize!",
     "legalWarning": "Buying a digital PoxiCard does not imply purchasing an entry to the giveaway. By acquiring a PoxiCard, you automatically receive a free courtesy entry."
+  },
+  "gallery": {
+    "title": "Projects Gallery",
+    "subtitle": "Discover the magic of our creations and let yourself be inspired by innovation."
+
   }
 }
