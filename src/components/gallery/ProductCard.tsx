@@ -32,7 +32,7 @@ function getWhatsAppLink(productName: string) {
 
 // Server Component que renderiza la tarjeta
 export function ProductCard({ product }: { product: Product }) {
-  const { media = [], name, description, id } = product;
+  const { media = [], name, description } = product;
 
   return (
     <div className="dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
