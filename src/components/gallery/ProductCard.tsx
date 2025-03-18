@@ -3,7 +3,6 @@
 // ----------------------------------------
 
 // NOTA: No usamos 'use client' aquí. Esto se ejecuta en el servidor.
-import Image from "next/image";
 
 // Importamos SOLO el MediaCarousel (Client Component) para el carrusel de Swiper
 import { MediaCarousel } from "./ClientComponents";

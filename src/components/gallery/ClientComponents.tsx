@@ -3,9 +3,6 @@
 // ----------------------------------------
 "use client";
 
-// Aquí van TODOS los componentes que usen React del lado del cliente,
-// incluyendo Swiper, modales, hooks, etc.
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -17,12 +14,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // ---------------------------------------------------------
-// 1) Tipos e iconos (todo cliente, para evitar ciclos con server)
+// 1) Tipos e iconos
 // ---------------------------------------------------------
 export interface MediaItem {
   type: "image" | "video";
   url: string;
   caption?: string;
+}
+
+interface OpenGalleryModalEventDetail {
+  item: MediaItem;
+  productName?: string;
 }
 
 export function ExpandIcon() {
@@ -73,13 +75,11 @@ export function CloseIcon() {
 // 2) Botón de expandir (abre el modal)
 // ---------------------------------------------------------
 export function ExpandButton({
-  productId,
   mediaUrl,
   mediaType,
   caption,
   productName,
 }: {
-  productId: number;
   mediaUrl: string;
   mediaType: "image" | "video";
   caption?: string;
@@ -89,14 +89,18 @@ export function ExpandButton({
     e.stopPropagation();
     e.preventDefault();
 
-    // Creamos un evento custom para que GalleryModal lo escuche
-    const event = new CustomEvent("openGalleryModal", {
-      detail: {
-        item: { type: mediaType, url: mediaUrl, caption },
-        productName,
-      },
-    });
-    window.dispatchEvent(event as any);
+    // Evento custom tipado
+    const event = new CustomEvent<OpenGalleryModalEventDetail>(
+      "openGalleryModal",
+      {
+        detail: {
+          item: { type: mediaType, url: mediaUrl, caption },
+          productName,
+        },
+      }
+    );
+
+    window.dispatchEvent(event);
   };
 
   return (
@@ -116,20 +120,13 @@ export function ExpandButton({
 interface MediaItemCardProps {
   item: MediaItem;
   altText: string;
-  productId: number;
   productName: string;
 }
-function MediaItemCard({
-  item,
-  altText,
-  productId,
-  productName,
-}: MediaItemCardProps) {
+
+function MediaItemCard({ item, altText, productName }: MediaItemCardProps) {
   return (
     <div className="relative w-full h-full">
-      {/* Botón de expandir (abre modal) */}
       <ExpandButton
-        productId={productId}
         mediaUrl={item.url}
         mediaType={item.type}
         caption={item.caption}
@@ -159,7 +156,6 @@ function MediaItemCard({
         </video>
       )}
 
-      {/* Caption */}
       {item.caption && (
         <div className="absolute bottom-3 left-3 right-3 bg-black bg-opacity-60 text-white text-sm px-4 py-2 rounded-md">
           {item.caption}
@@ -174,14 +170,9 @@ function MediaItemCard({
 // ---------------------------------------------------------
 interface MediaCarouselProps {
   media: MediaItem[];
-  productId: number;
   productName: string;
 }
-export function MediaCarousel({
-  media,
-  productId,
-  productName,
-}: MediaCarouselProps) {
+export function MediaCarousel({ media, productName }: MediaCarouselProps) {
   return (
     <div className="relative w-full bg-sky-400" style={{ aspectRatio: "4/3" }}>
       <Swiper
@@ -196,7 +187,6 @@ export function MediaCarousel({
             <MediaItemCard
               item={item}
               altText={productName}
-              productId={productId}
               productName={productName}
             />
           </SwiperSlide>
@@ -218,7 +208,6 @@ function FullscreenModal({
   altText: string;
   onClose: () => void;
 }) {
-  // Cerrar con "Escape"
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -242,7 +231,6 @@ function FullscreenModal({
         className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Botón cerrar */}
         <button
           className="absolute top-4 right-4 z-10 bg-white dark:bg-gray-800 text-black dark:text-white p-2 rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
           onClick={onClose}
@@ -251,7 +239,6 @@ function FullscreenModal({
           <CloseIcon />
         </button>
 
-        {/* Contenido */}
         <div className="w-full h-full flex flex-col">
           {item.type === "image" ? (
             <div
@@ -274,7 +261,6 @@ function FullscreenModal({
             </video>
           )}
 
-          {/* Caption */}
           {item.caption && (
             <div className="mt-4 text-white text-center text-lg">
               {item.caption}
@@ -300,19 +286,24 @@ export function GalleryModal() {
     setModalContent({ isOpen: false });
   };
 
-  // Listener global
   useEffect(() => {
-    const handleOpenModal = (event: CustomEvent) => {
+    // Maneja el evento custom de abrir modal
+    const handleOpenModal = (event: Event) => {
+      const customEvent = event as CustomEvent<OpenGalleryModalEventDetail>;
       setModalContent({
         isOpen: true,
-        item: event.detail.item,
-        productName: event.detail.productName,
+        item: customEvent.detail.item,
+        productName: customEvent.detail.productName,
       });
     };
 
-    window.addEventListener("openGalleryModal" as any, handleOpenModal);
+    window.addEventListener("openGalleryModal", handleOpenModal as EventListener);
+
     return () => {
-      window.removeEventListener("openGalleryModal" as any, handleOpenModal);
+      window.removeEventListener(
+        "openGalleryModal",
+        handleOpenModal as EventListener
+      );
     };
   }, []);
 
