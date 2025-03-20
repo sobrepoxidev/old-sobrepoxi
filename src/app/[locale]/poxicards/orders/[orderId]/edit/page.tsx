@@ -234,12 +234,15 @@ export default async function OrdersEditPage(props: { params: tParams }) {
                     <p><strong>Correo:</strong> {correo}</p>
                     <p><strong>Nombre:</strong> {nombreUsuario}</p>
                     <p><strong>Método de Pago:</strong> {order.payment_method}</p>
-                    <p><strong>Fecha Creación:</strong> {new Date(order.created_at).toLocaleDateString('es-CR', {
-                        timeZone: 'America/Costa_Rica',
-                        hour: 'numeric',
-                        minute: 'numeric',
-                        hour12: true, // fuerza AM/PM
-                    })}</p>
+                    <p><strong>Fecha Creación:</strong> {new Date(order.created_at).toLocaleString('es-CR', {
+    timeZone: 'America/Costa_Rica',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  })}</p>
                 </div>
             </section>
 
