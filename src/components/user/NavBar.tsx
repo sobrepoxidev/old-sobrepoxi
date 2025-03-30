@@ -120,19 +120,13 @@ export default function Navbar() {
           <Link href="/" className="flex items-start space-x-1 group">
             {/* Logo SVG de Sobrepoxi */}
             <Image
-              src="/logo3.svg"
+              src="/mainlogo.png"
               alt="Sobrepoxi"
-              width={27}
-              height={27}
-              className="w-15 h-15 pt-0.5 "
+              width={125}
+              height={0}
+              className="max-sm:w-24 sm:max-w-[100px] h-auto object-contain"
             />
-            <span className={`text-2xl pl-0 ml-0 font-extrabold transition-colors ${
-        isScrolled 
-          ? 'text-primary dark:text-white' 
-          : ' dark:text-gray-100'
-      }`}>
-              Sobrepoxi
-            </span>
+          
           </Link>
         </div>
         
