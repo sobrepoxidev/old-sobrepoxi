@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
+import { Analytics } from "@vercel/analytics/react"
 
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -72,11 +73,15 @@ const supabase = createServerComponentClient<Database>({ cookies: () => cookieSt
         <NextIntlClientProvider locale={locale}>
           {/* Proveedor de Supabase con la session */}
           <SupabaseProvider session={session}>
+            
             {/* Proveedor de carrito */}
             <CartProvider>
             <Navbar />
               {/* Contenido principal crece y empuja el footer hasta el final " */}
               <main className="flex-grow">{children}</main>
+              {/* Analytics de Vercel (opcional) */}
+            <Analytics />
+
               {/* Footer siempre al final */}
               <Footer />
             </CartProvider>
