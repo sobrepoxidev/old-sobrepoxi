@@ -15,7 +15,7 @@ export default function Step3_PayPal({
 
     return (
         <div>
-            <h3 className="text-lg font-bold mb-2">Pago con PayPal</h3>
+            
             {loading && <p className="text-gray-600">Procesando...</p>}
             <PayPalScriptProvider
                 options={{
@@ -25,6 +25,7 @@ export default function Step3_PayPal({
                   }}
             >
                 <PayPalButtons
+                    
                     createOrder={async () => {
                         // Llamar a tu API para crear la orden en PayPal
                         setLoading(true);
